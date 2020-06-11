@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSE Corporation | CSE Is Home - Best Friends Forever</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="navbar.css">
+        <link type="text/css" rel="stylesheet" href="T-shirt-style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <script src="imageProduct.js"></script>
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+        <div id="website-box">
+            <div id="navbar">
+                <img src="image/logo-BK.png" alt="logoBK">
+                <img src="image/logo-CSE.png" alt="logoCSE">
+                <a id="mobile" href="javascript:void(0);" class="icon" onclick="myMobile()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div id="navbar-right">
+                    <a href="home.html" class="navbar-element">HOME</a>
+                    <div class="dropdown navbar-element">
+                        <button class="dropbtn" onclick="WhatYouNeed()">WHAT YOU NEED <i class="fa fa-caret-down"></i></button>
+                        <div class="dropdown-content" id="WhatYouNeed">
+                            <a>CSE's PRODUCT</a>
+                            <a href="T-shirt.html">&nbsp;&nbsp;&nbsp;The Associated Organ of Vietnamese Students’ Association T-shirt</a>
+                            <a href="">&nbsp;&nbsp;&nbsp;Ho Chi Minh Communist Youth Union Shirt</a>
+                            <a href="">&nbsp;&nbsp;&nbsp;CSE Neck Strap</a>
+                            <a href="">&nbsp;&nbsp;&nbsp;CSE Job Fair Teddy Bear</a>
+                        </div>
+                    </div>
+                    <a href="store.html" class="navbar-element">STORE</a>
+                    <div class="dropdown navbar-element">
+                        <button class="dropbtn" onclick="FamilyTree()">FAMILY TREE <i class="fa fa-caret-down"></i></button>
+                        <div class="dropdown-content" id="FamilyTree">
+                            <a>CSE Corporation</a>
+                            <a href="about.html">&nbsp;&nbsp;&nbsp;About</a>
+                            <a href="">&nbsp;&nbsp;&nbsp;Leadership</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="navbar-element">CONTACT</a>
+                    <div class="dropdown navbar-element">
+                        <button class="dropbtn" onclick="Account()"><i class="fa fa-user-circle"></i> ACCOUNT</button>
+                        <div class="dropdown-content" id="Account">
+                            <form method="post" name="formLogin">
+                                <div class="input-group">
+                                    <i class="fa fa-at"></i>
+                                    <input type="text" placeholder="Email" value="" name="email">
+                                </div>
+                                <div class="input-group">
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" placeholder="Password" value="" name="pwd">
+                                </div>
+                                <button id="loginButton" type="submit" value="login">Login</button>
+                                <div id="linkLogin">
+                                    <a href="">FORGOT?</a>
+                                    <a href="">SIGN UP</a>
+                                </div>
+                                <p>-- Or logining by --</p>
+                                <a href="" id="facebookButton">FACEBOOK</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="background">
+            <div id="slogan">
+                <h1>
+                    Provide your product experience for us to perfect T-shirts more.
+                </h1>
+                <h2>
+                    Including error about size, color or stiches of T-shirts.
+                </h2>
+                <div id="clickContact">
+                    <a href="contact.html" target="_blank">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+        <div id="T-shirt-content">
+            <h1 class="header-content">
+                The Associated Organ of Vietnamese Students’ Association T-shirt
+            </h1>
+            <span>&#95;&#95;&#95;</span>
+            <div class="header-content-detail">
+                <a class="fa fa-bullseye"></a>
+                <div>
+                    <h2>Goal</h2>
+                    <h2>Increasing your confidence to your day be full of energy and more active</h2>
+                </div>
+            </div>
+            <div class="header-content-detail">
+                <a class="fa fa-cogs"></a>
+                <div>
+                    <h2>Technical Production</h2>
+                    <h2>Sewing in closed chain of high technology to have eye-catching details.</h2>
+                </div>
+            </div>
+            <div class="header-content-detail">
+                <a class="fa fa-star"></a>
+                <div>
+                    <h2>Standard</h2>
+                    <h2>T-shirts is sewed according the standard of the Associated Organ of Vietnamese Students’ Association.</h2>
+                </div>
+            </div>
+
+            <h1 class="header-content">
+                Meaning of this T-shirt
+            </h1>
+            <span>&#95;&#95;&#95;</span>
+            <h2 class="descriptionHeader">
+                Like a red scraf, the Associated Organ of Vietnamese Students’ Association T-shirt
+                becomes a integral part of students's life at Universities. This shirts is
+                representing the Associated Organ of Vietnamese Students’ Association which is 
+                an organization is putting students's interest firsts and is connected directly to
+                them. Goal of this organization is unity with students to race together in learning
+                and practice. 
+            </h2>
+
+            <h1 class="header-content">
+                General description
+            </h1>
+            <span>&#95;&#95;&#95;</span>
+            <h2 class="descriptionHeader">
+                This T-shirt is designated for students to feel comfortable when studying or joining
+                outdoor activities as shown below: 
+            </h2>
+            <div id=containerTshirt>
+                <div id="imageTshirt">
+                    <div id="originalImage">
+                        <div id="miniImage">
+                            <img src="image/aohoi.jpg" alt='aoHoi' onClick="clickImage(this);">
+                            <img src="image/aodoan.jpg" alt='aoHoi' onClick="clickImage(this);">
+                            <img src="image/aohoi.jpg" alt='aoHoi' onClick="clickImage(this);">
+                            <img src="image/aodoan.jpg" alt='aoHoi' onClick="clickImage(this);">
+                            <div id="transparentImageText">
+                                <img src="image/aohoi.jpg" alt='aoHoi' onclick="openModal();currentSlide(1)" class="hover-shadow">      
+                                <div id="contentImageText" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                                    <p>See more images</p>
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="moreImage">
+                            <div id="myModal" class="modal">
+                                <span class="close cursor" onclick="closeModal()">&times;</span>
+                                <div class="modal-content">
+                                    <div class="mySlides">
+                                        <div class="numbertext">1 / 4</div>
+                                        <img src="image/aohoi.jpg" alt="aoHoi">
+                                    </div>
+                              
+                                    <div class="mySlides">
+                                        <div class="numbertext">2 / 4</div>
+                                        <img src="image/aodoan.jpg" alt="aoDoan">
+                                    </div>
+                              
+                                    <div class="mySlides">
+                                        <div class="numbertext">3 / 4</div>
+                                        <img src="image/aohoi.jpg" alt="aoHoi">
+                                    </div>
+                              
+                                    <div class="mySlides">
+                                        <div class="numbertext">4 / 4</div>
+                                        <img src="image/aodoan.jpg" alt="aoDoan">
+                                    </div>
+                              
+                                    <!-- Next/previous controls -->
+                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                              
+                                    <!-- Caption text -->
+                                    <div class="caption-container">
+                                        <p id="caption">Original Image</p>
+                                    </div>
+                              
+                                    <!-- Thumbnail image controls -->
+                                    <div class="column">
+                                        <img class="demo" src="image/aohoi.jpg" onclick="currentSlide(1)" alt="aoHoi">
+                                    </div>
+                              
+                                    <div class="column">
+                                        <img class="demo" src="image/aodoan.jpg" onclick="currentSlide(2)" alt="aoDoan">
+                                    </div>
+                              
+                                    <div class="column">
+                                        <img class="demo" src="image/aohoi.jpg" onclick="currentSlide(3)" alt="aoHoi">
+                                    </div>
+                              
+                                    <div class="column">
+                                        <img class="demo" src="image/aodoan.jpg" onclick="currentSlide(4)" alt="aoDoan">
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
+                        <div id="bigImage">
+                            <img id="myImage" src="image/aohoi.jpg" alt="aoHoi">
+                        </div>
+                    </div>
+                </div>
+                <div id="descriptionTshirt">
+                    <div id="descriptionTitle">
+                        <h2>The Associated Organ of Vietnamese Students’ Association T-shirt</h2>
+                    </div>
+                    <div id="price">90.000đ</div>
+                    <div id="descriptionContent">
+                        <h2>Clothing materials:</h2>
+                        <h2>Materials of KATE SILK, smooth and soft, sweatin well.</h2>
+                        <h2>Color:</h2>
+                        <h2>Usuallly white or blue if you request.</h2>
+                        <h2>Other design:</h2>
+                        <h2>Have strong collar, be short-sleeved.</h2>
+                        <h2>Other feature:</h2>
+                        <h2>Not faded, not shaggy.</h2>
+                    </div>
+                    <div id="buying">
+                        <div id="size">
+                            <h4>Size:</h4>
+                            <button onclick="decreaseNumSize()">-</button>
+                            <input id="numInputSize" type="text" value="80">
+                            <button onclick="increaseNumSize()">+</button>
+                        </div>
+                        <div id="quality">
+                            <h4>Quality:</h4>
+                            <button onclick="decreaseNumQuality()">-</button>
+                            <input id="numInputQuality" type="text" value="1">
+                            <button onclick="increaseNumQuality()">+</button>
+                        </div>
+                        <div id="buyButton">
+                            <input type="button" value="CHOOSE">
+                        </div>
+                    </div>
+                </div>
+                <div id="advertisement">
+                    Advertisement
+                </div>
+            </div>
+            <div id="sizeOfTshirts">
+                <h1 class="header-content">Size of T-shirts</h1>
+                <span>&#95;&#95;&#95;</span>
+                <table>
+                    <tr>
+                        <th>SIZE</th>
+                        <th>Tall</th>
+                        <th>Weigh</th>
+                    </tr>
+                    <tr>
+                        <td>80-84</td>
+                        <td>1m57-1m65</td>
+                        <td>52-60kg</td>
+                    </tr>
+                    <tr>
+                        <td>84-89</td>
+                        <td>1m66-1m70</td>
+                        <td>60-67kg</td>
+                    </tr>
+                    <tr>
+                        <td>90-94</td>
+                        <td>1m71-1m75</td>
+                        <td>68-72kg</td>
+                    </tr>
+                    <tr>
+                        <td>95-99</td>
+                        <td>1m76-1m80</td>
+                        <td>73-80kg</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="contactUs">
+            <h2>
+                Beginning a new day with our T-shirts to do everything you enjoy and let this day be
+                so happy to you. Contact us if you have any problem with our product.
+            </h2>
+            <a href="contact.html" target="_blank">GET STARTED DAY</a>
+        </div>
+        <footer>
+            <h3>PRODUCTS</h3>
+            <div id="footer-product">
+                <div>
+                    The Associated Organ of Vietnamese Students’ Association T-shirt<br><br>
+                    Ho Chi Minh Communist Youth Union Shirt
+                </div>
+                <div>
+                    CSE Neck Strap
+                </div>
+                <div>
+                    CSE Job Fair Teddy Bear
+                </div>
+            </div>
+            <div id="footer-contact">
+                <img src="image/logo-BK.png" alt="logo-BK">
+                <img src="image/logo-CSE.png" alt="logo-CSE">
+                <span>&copy; 2020 CSE Corporation. All Rights Reserved</span>
+                <a href="https://www.facebook.com/BKCSE.Multimedia" target="_blank"><img src="image/facebook.png" alt="facebook"></a>
+                <a href="https://www.youtube.com/channel/UCRdt580Yp-P3Abj7JauVnoQ" target="_blank"><img src="image/youtube.png" alt="youtube"></a>
+                <a href="http://doanhoi.cse.hcmut.edu.vn/" target="_blank"><span>doanhoi</span></a>
+            </div>
+        </footer>
+        <script src="goToTop.js"></script>
+        <!-- <script src="clickImage.js"></script> -->
+        <script src="increaseNum.js"></script>
+        <script src="lightbox.js"></script>
+        <script src="mobile.js"></script>
+        <script>magnify()</script>
+    </body>
+</html>

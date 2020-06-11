@@ -1,0 +1,474 @@
+@media only screen and (max-width : 1440px) {
+    /*background T-shirt*/
+    #background{
+        background-image: url("image/store.jpg");
+        margin-top: 5%;
+        height: 500px;
+        opacity: 1;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(200%);
+    }
+    #background h1{
+        padding-top: 10%;
+        padding-left: 8%;
+        margin-bottom: 0px;
+        color: wheat;
+        font-size: 3em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 400;
+        line-height: 54px;
+    }
+    #background h2{
+        padding-top: 10px;
+        padding-left: 8%;
+        color: wheat;
+        font-weight: 200;
+        font-size: 2em;
+        margin: 0;
+    }
+    #clickContact a{
+        float: left;
+        padding: 15px 30px;
+        margin: 20px 40px 0px 8%;
+        color: wheat;
+        font-weight: 200;
+        font-size: 1em;
+        background-color: goldenrod;
+        cursor: pointer;
+        border: 1px solid grey;
+        text-decoration: none;
+    }
+    #clickContact a:hover{
+        background-color: gold;
+        color: grey;
+        transition: 0.5s;
+    }
+    /*store-content*/
+    #store-content{
+        height: 1200px;
+        background-color: wheat;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    #boxLeft{
+        float: left;
+        width: 20%;
+        padding-left: 20px;
+        padding-top: 20px;
+        border-right: 1px solid silver;
+    }
+    .category{
+        margin-bottom: 40px;
+    }
+    .category .titleCategory h4{
+        margin-bottom: 20px;
+    }
+    .category .listGroupItem{
+        padding: 5px 0 5px 0;
+    }
+    .category .listGroupItemChild{
+        padding: 8px 0 8px 15px;
+    }
+    .category .listGroup a{
+        text-decoration: none;
+        color: black;
+    }
+    .category .listGroup *:hover{
+        background-color: silver;
+    }
+    .category .listGroup span{
+        margin-left: 5px;
+        color: gray;
+    }
+    #inputRange input{
+        width: 40%;
+        margin: 0 5px 10px 5px;
+        border-radius: 4px;
+        border: 1px solid gray;
+        height: 25px;
+    }
+    #chooseRange button{
+        margin: 0 5px 10px 5px;
+        width: 40%;
+        border-radius: 4px;
+        border: 1px solid dodgerblue;
+        padding: 5px 20px;
+        cursor: pointer;
+        color: dodgerblue;
+    }
+    #chooseRange button:hover{
+        color: wheat;
+        background-color: dodgerblue;
+    }
+    #boxRight{
+        float: left;
+        width: 78%;
+        padding-left: 20px;
+        padding-top: 40px;
+    }
+    #optionBox::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #optionBox{
+        padding-bottom: 4px;
+        border-bottom: 1px solid silver;
+    }
+    #optionChoose{
+        float: left;
+    }
+    #optionChoose *{
+        margin-right: 15px;
+    }
+    #optionChoose a{
+        cursor: pointer;
+    }
+    #optionChoose a:hover{
+        color: dodgerblue;
+        padding-bottom: 12px;
+        border-bottom: 1px solid dodgerblue;
+    }
+    .closebtn{
+        display: none;
+    }
+    #searchBox{
+        float: left;
+        margin-left: 50px;
+    }
+    #searchBox input{
+        height: 25px;
+        width: 250px;
+        font-size: 1em;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 4px 0 0 4px;
+        border: 1px solid silver;
+        padding-left: 10px;
+    }
+    #searchBox button{
+        margin-left: 0;
+        height: 26px;
+        border-radius: 0 4px 4px 0;
+        border: 1px solid silver;
+        cursor: pointer;
+    }
+    #searchBox button:hover{
+        opacity: 0.7;
+    }
+    #searchBox input::placeholder{
+        color: gray;
+    }
+    #handleMobile{
+        display: none;
+    }
+    #smallBox{
+        padding: 20px 0 20px 0;
+        border-bottom: 1px solid silver;
+    }
+    #productBox{
+        padding: 10px 40px 20px 0;
+    }
+    #smallBox::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .productSmallBox{
+        float: left;
+        width: 25%;
+        padding: 10px;
+        height: 470px;
+        cursor: pointer;
+    }
+    .productSmallBox:hover{
+        box-shadow: 5px 5px 5px grey;
+    }
+    .productSmallBox .linkProduct{
+        text-decoration: none;
+    }
+    .productSmallBox img{
+        width: 100%;
+    }
+    .smallImg img{
+        width: 20%;
+        cursor: pointer;
+    }
+    .smallImg img:first-child{
+        border: 1px solid orange;
+    }
+    .titleProduct{
+        margin-top: 10px;
+        margin-bottom: 5px;
+        text-align: justify;
+        color: black;
+    }
+    .priceProduct{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: black;
+    }
+    #paging::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #paging{
+        float: right;
+        padding: 10px 0 10px 0;
+        margin-bottom: 50px;
+    }
+    #paging .normalPage{
+        float: left;
+        padding-top: 3px;
+        margin-left: 20px;
+        margin-top: 3px;
+        text-decoration: none;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+    }
+    #paging .normalPage:nth-child(1){
+        background-color: dodgerblue;
+        color: wheat;
+    }
+    #paging .nextPage{
+        margin-left: 20px;
+        float: left;
+        font-size: 1.7em;
+        background-color: wheat;
+        color: dodgerblue
+    }
+    /*Footer*/
+    footer{
+        background-color: lavender;
+        height: 480px;
+        color: grey;
+    }
+    footer h3{
+        padding: 8% 0 2% 8%;
+        color: grey;
+        margin: 0;
+    }
+    footer #footer-product::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    footer #footer-product div{
+        float: left;
+        width: 25%;
+        box-sizing: border-box;
+        padding: 0 0 80px 8%;
+        line-height: 1.5em;
+        font-size: 1.1em;
+    }
+    footer #footer-product div:nth-child(1){
+        width: 40%;
+    }
+    footer #footer-contact img{
+        float: left;
+        width: 5%;
+        box-sizing: border-box;
+        margin: 0 0 4% 2%;
+    }
+    footer #footer-contact > img:nth-child(1){
+        margin-left: 8%;
+    }
+    footer #footer-contact span{
+        float: left;
+        box-sizing: border-box;
+        margin: 1.5% 2% 4% 2%;
+        font-size: 1.2em;
+    }
+    footer #footer-contact a > img{
+        float: left;
+        margin: 0 0px 4% 2%;
+        width: 3%;
+        box-sizing: border-box;
+    }
+    footer #footer-contact a span{
+        float: left;
+        margin: 1% 0 4% 2%;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    footer #footer-contact a *:hover{
+        opacity: 0.5;
+    }
+    /*goToTop*/
+    #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: dodgerblue; /* Set a background color */
+        color: black; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+    }
+    #myBtn:hover {
+        background-color: goldenrod; /* Add a dark-grey background on hover */
+    }
+}
+@media only screen and (max-width : 768px) {
+    #background{
+        height: 500px;
+    }
+    #inputRange input{
+        width: 70%;
+    }
+    #chooseRange button{
+        width: 70%;
+    }
+    .category{
+        font-size: 0.7em;
+    }
+    .productSmallBox:hover{
+        box-shadow: none;
+    }
+    /*That is footer*/
+    footer{
+        height: 550px;
+    }
+    footer #footer-product div{
+        padding: 0 0 20px 40px;
+        width: 90%;
+    }
+    footer #footer-product div:first-child{
+        width: 90%;
+    }
+    footer #footer-contact img{
+        width: 10%;
+    }
+    footer #footer-contact a > img{
+        width: 10%;
+    }
+    footer #footer-contact span{
+        margin: 10px 10% 4% 40px;
+    }
+    footer #footer-contact > span{
+        width: 100%;
+    }
+    #footer-contact > a:nth-child(4) > img:nth-child(1) {
+        margin-left: 40px;
+    }
+}
+@media only screen and (max-width : 480px) {
+    #background{
+        height: 350px;
+    }
+    #background h1{
+        font-size: 2em;
+        line-height: 40px;
+    }
+    #background h2{
+        font-size: 1.5em;
+    }
+    #clickContact a{
+        padding: 20px 40px;
+        font-size: 1.5em;
+    }
+    #boxLeft{
+        float: left;
+        width: 35%;
+        display: none;
+    }
+    #boxRight{
+        float: left;
+        width: 90%;
+    }
+    #store-content{
+        height: 4100px;
+    }
+    #optionChoose {
+        display: none;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        background-color: white;
+        left: 0;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    #boxLeft{
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        display: none;
+        background-color: white;
+        right: 0;
+    }
+    #optionChoose > *{
+        display: block;
+        padding: 10px 0px;
+    }
+    #optionChoose a:hover{
+        color: black;
+        padding: 10px 0px;
+        border: none;
+    }
+    #searchBox{
+        margin-left: 0;
+    }
+    .productSmallBox{
+        width: 100%;
+        border: 1px solid silver;
+    }
+    #handleMobile{
+        display: block;
+    }
+    .closebtn{
+        display: block;
+        text-decoration: none;
+        color: black;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+    #sorting{
+        float: left;
+        width: 75%;
+    }
+    #filter{
+        float: left;
+    }
+    #sorting button, #filter button{
+        background-color: wheat;
+        cursor: pointer;
+        border: none;
+        font-size: 1em;
+        padding: 5px 5px;
+    }
+    /*That's footer*/
+    
+    footer{
+        height: 550px;
+    }
+    footer #footer-product div{
+        padding: 0 0 20px 40px;
+        width: 90%;
+    }
+    footer #footer-product div:first-child{
+        width: 90%;
+    }
+    footer #footer-contact img{
+        width: 10%;
+    }
+    footer #footer-contact a > img{
+        width: 10%;
+    }
+    footer #footer-contact span{
+        margin: 10px 10% 4% 40px;
+    }
+    #footer-contact > a:nth-child(4) > img:nth-child(1) {
+        margin-left: 40px;
+    }
+}

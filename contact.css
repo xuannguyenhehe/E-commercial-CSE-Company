@@ -1,0 +1,302 @@
+@media only screen and (max-width : 1440px) {
+    /*background contact*/
+    #background{
+        background-image: url("image/contact.jpg");
+        margin-top: 0px;
+        height: 300px;
+        opacity: 1;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(200%);
+    }
+    #background h1{
+        padding-top: 5%;
+        padding-left: 10%;
+        margin-bottom: 0px;
+        color: wheat;
+        font-size: 4em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        line-height: 54px;
+    }
+    /*contact-content*/
+    #contact-content{
+        padding-top: 60px;
+        background-color: wheat;
+        height: 1000px;
+    }
+    #contact-information{
+        color: darkblue;
+        padding-left: 8%;
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+    }
+    #contact-information h2{
+        font-weight: 400;
+        font-size: 2em;
+    }
+    #contact-information button{
+        margin-top: 5%;
+        padding: 15px 30px;
+        font-size: 1.3em;
+        color: wheat;
+        background-color: goldenrod;
+    }
+    #contact-information button:hover{
+        color: grey;
+        background-color: gold;
+    }
+    #contact-information h1{
+        margin: 70px 0 30px 0;
+        font-size: 2.5em;
+    }
+    #contact-information h3{
+        line-height: 50px;
+        font-weight: 400;
+        font-size: 1.3em;
+        color: black;
+    }
+    #contact-information span{
+        color: blue;
+        cursor: pointer;
+    }
+    #contact-information a{
+        font-size: 1.5em;
+        color: blue;
+        margin-right: 15px;
+    }
+    #contact-form{
+        padding-left: 5%;
+        padding-right: 5%;
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+    }
+    #contact-form p{
+        font-size: 1.5em;
+    }
+    #contact-form form *{
+        margin: 10px 0 10px 0;
+    }
+    #contact-form form input[type=text]{
+        height: 25px;
+    }
+    #lname, #fname{
+        width: 44.5%;
+    }
+    #email, #pnumber, #place{
+        width: 94%
+    }
+    textarea {
+        width: 80%;
+    }
+    #contact-form form input::placeholder{
+        font-size: 1.3em;
+    }
+    #contact-form form label span{
+        color: red;
+    }
+    #interest::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #interest{
+        font-size: 1.2em;
+    }
+    #interest label{
+        margin: 10px 0 10px 0;
+    }
+    #interest .checkbox-interest{
+        width: 40%;
+        float: left;
+        margin: 0;
+    }
+    #contact-form form textarea::placeholder{
+        font-size: 1.3em;
+    }
+    #contact-form form textarea{
+        margin-bottom: 0;
+    }
+    #contact-form form input[type=submit]{
+        padding: 10px 30px;
+        font-size: 1.3em;
+        color: wheat;
+        background-color: goldenrod;
+    }
+    #contact-form form input[type=submit]:hover{
+        color: grey;
+        background-color: gold;
+    }
+    /*Footer*/
+    footer{
+        background-color: lavender;
+        height: 480px;
+        color: grey;
+    }
+    footer h3{
+        padding: 8% 0 2% 8%;
+        color: grey;
+        margin: 0;
+    }
+    footer #footer-product::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    footer #footer-product div{
+        float: left;
+        width: 25%;
+        box-sizing: border-box;
+        padding: 0 0 80px 8%;
+        line-height: 1.5em;
+        font-size: 1.1em;
+    }
+    footer #footer-product div:nth-child(1){
+        width: 40%;
+    }
+    footer #footer-contact img{
+        float: left;
+        width: 5%;
+        box-sizing: border-box;
+        margin: 0 0 4% 2%;
+    }
+    footer #footer-contact > img:nth-child(1){
+        margin-left: 8%;
+    }
+    footer #footer-contact span{
+        float: left;
+        box-sizing: border-box;
+        margin: 1.5% 2% 4% 2%;
+        font-size: 1.2em;
+    }
+    footer #footer-contact a > img{
+        float: left;
+        margin: 0 0px 4% 2%;
+        width: 3%;
+        box-sizing: border-box;
+    }
+    footer #footer-contact a span{
+        float: left;
+        margin: 1% 0 4% 2%;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    footer #footer-contact a *:hover{
+        opacity: 0.5;
+    }
+    /*goToTop*/
+    #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: dodgerblue; /* Set a background color */
+        color: black; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+    }
+    #myBtn:hover {
+        background-color: goldenrod; /* Add a dark-grey background on hover */
+    }
+}
+@media only screen and (max-width : 768px) {
+    #background{
+        height: 300px;
+    }
+    #contact-content{
+        height: 1500px;
+    }
+    #contact-information{
+        width: 100%;
+    }
+    #contact-form{
+        width: 100%;
+    }
+    #lname, #fname{
+        width: 45.7%;
+    }
+    /*That is footer*/
+    footer{
+        height: 550px;
+    }
+    footer #footer-product div{
+        padding: 0 0 20px 40px;
+        width: 90%;
+    }
+    footer #footer-product div:first-child{
+        width: 90%;
+    }
+    footer #footer-contact img{
+        width: 10%;
+    }
+    footer #footer-contact a > img{
+        width: 10%;
+    }
+    footer #footer-contact span{
+        margin: 10px 10% 4% 40px;
+    }
+    footer #footer-contact > span{
+        width: 100%;
+    }
+    #footer-contact > a:nth-child(4) > img:nth-child(1) {
+        margin-left: 40px;
+    }
+}
+@media only screen and (max-width : 480px) {
+    #background{
+        height: 300px;
+    }
+    #background h1{
+        font-size: 3em;
+    }
+    #contact-content{
+        height: 1800px;
+    }
+    #contact-information{
+        padding-left: 30px;
+    }
+    #contact-form{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #lname, #fname{
+        width: 45%;
+    }
+    #interest .checkbox-interest{
+        width: 100%;
+    }
+    textarea {
+        width: 320px;
+    }
+    /*That's footer*/
+    
+    footer{
+        height: 550px;
+    }
+    footer #footer-product div{
+        padding: 0 0 20px 40px;
+        width: 90%;
+    }
+    footer #footer-product div:first-child{
+        width: 90%;
+    }
+    footer #footer-contact img{
+        width: 10%;
+    }
+    footer #footer-contact a > img{
+        width: 10%;
+    }
+    footer #footer-contact span{
+        margin: 10px 10% 4% 40px;
+    }
+    #footer-contact > a:nth-child(4) > img:nth-child(1) {
+        margin-left: 40px;
+    }
+}
