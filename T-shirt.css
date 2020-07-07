@@ -1,0 +1,395 @@
+body {
+    background-color: wheat;
+}
+.jumbotron{
+    background-image: url("image/bg_aohoi.jpg");
+    color: wheat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width : 1440px) {
+    #T-shirt-content{
+        padding-left: 5rem;
+    }
+    #T-shirt-content .header-content{
+        margin-top: 0;
+        padding-top: 2rem;
+        font-size: 1.5rem;
+    }
+    #T-shirt-content > span{
+        font-size: 3em;
+        color: darkblue;
+        display: inline-block;
+        line-height: 0.5em;
+        margin-top: -5rem;
+        font-weight: bolder;
+    }
+    #T-shirt-content .header-content-detail::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #T-shirt-content .header-content-detail a{
+        margin-top: 2.5rem;
+        font-size: 1.5rem;
+        color: darkblue;
+        float: left;
+    }
+    #T-shirt-content .header-content-detail div{
+        float: left;
+        margin-left: 2rem;
+        width: 80%;
+    }
+    #T-shirt-content .header-content-detail h2:first-child{
+        margin: 2rem 0 0 0;
+        font-size: 1rem;
+    }
+    #T-shirt-content .header-content-detail h2:last-child{
+        margin: 0.5rem 0 0 0;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    #T-shirt-content .descriptionHeader{
+        font-weight: 400;
+        text-align: justify;
+        margin: 2rem 3rem 0 0;
+        font-size: 1rem;
+        line-height: 3rem;
+    }
+    #containerTshirt::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #containerTshirt #imageTshirt,#descriptionTshirt{
+        width: 35rem;
+        margin-top: 3rem;
+        float: left;
+    }
+    #containerTshirt #advertisement{
+        margin-top: 3rem;
+        width: 10%;
+        float: left;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 30rem;
+    }
+    #descriptionTshirt *{
+        margin: 0 0 0.5rem 0.5rem;
+    }
+    #descriptionTitle{
+        border-bottom: 1px solid silver;
+    }
+    #descriptionTitle h2{
+        color: darkblue;
+        font-size: 2rem;
+    }
+    #price{
+        color: red;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid silver;
+        font-size: 1.2rem;
+    }
+    #descriptionContent{
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin-right: 0.5rem;
+        border-bottom: 1px solid silver;
+    }
+    #descriptionContent h2:nth-child(odd){
+        font-size: 1rem;
+        color: darkblue;
+    }
+    #descriptionContent h2:nth-child(even){
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    #buying::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #buying{
+        margin-top: 1rem;
+        margin-right: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid silver;
+    }
+    #buying #size,#quality,#buyButton{
+        float: left;
+        margin-right: 2rem;
+    }
+    #buying h4{
+        color: darkblue;
+    }
+    #buying button:nth-child(2){
+        border-right: medium none;
+        border-radius: 4px 0px 0px 4px;
+    }
+    #buying button:last-child{
+        border-left: medium none;
+        border-radius: 0px 4px 4px 0px;
+    }
+    #buying button{
+        margin: 0;
+        width: 2rem;
+        cursor: pointer;
+    }
+    #buying button:hover{
+        background-color: grey;
+    }
+    #buying input, button{
+        margin: 0;
+        font-size: 1rem;
+        text-align: center;
+        outline: currentColor none medium;
+        border: 1px solid silver;
+    }
+    #buying input{
+        width: 2rem;
+    }
+    #buying input:hover{
+        border: 1px solid dodgerblue;
+    }
+    #buying #buyButton input{
+        cursor: pointer;
+        height: 4rem;
+        width: 15rem;
+        border-radius: 8px;
+        color: wheat;
+        background-color: red;
+        font-size: 1rem;
+    }
+    #buying #buyButton input:hover{
+        opacity: 0.6;
+    }
+    #originalImage::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #miniImage {
+        float: left;
+        width: 14%;
+         
+    }
+    #miniImage img{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        padding: 0.5rem;
+        margin: 0 0 0.5rem 0;
+        border: 1px solid silver;
+        cursor: pointer;
+    }
+    #miniImage img:hover{
+        border: 1px solid dodgerblue;
+    }
+    #miniImage #transparentImageText{
+        position: relative;
+        margin: 0;
+    }
+    #transparentImageText #contentImageText{
+        position: absolute; 
+        bottom: 0; 
+        background: rgb(0, 0, 0); 
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1; 
+        width: 100%; 
+        margin-bottom: 5px;
+        height: 100%;
+        cursor: pointer;
+    }
+    #contentImageText p{
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    #bigImage{
+        float: left;
+        width: 80%;
+        position: relative;
+    }
+    #bigImage img{
+        padding: 0 1rem;
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+        border-right: 1px solid silver;
+    }
+    /*Table of size*/
+    #sizeOfTshirts h1{
+        margin-top: 8rem;
+    }
+    #sizeOfTshirts table {
+        margin-top: 3rem;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 90%;
+        border: 1px solid gray;
+        margin-bottom: 3rem;
+    }
+    #sizeOfTshirts th, td {
+        text-align: left;
+        padding: 1rem;
+    }
+    
+    #sizeOfTshirts tr:nth-child(even) {
+        background-color: #f2f2f2;
+        font-size: 1rem;
+    }
+    #sizeOfTshirts tr:nth-child(odd) {
+        background-color: silver;
+        font-size: 1rem;
+    }
+    /*Light box image*/
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: black;
+    }
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        width: 20rem;
+        max-width: 1200px;
+    }
+    /* The Close Button */
+    .close {
+        color: white;
+        position: absolute;
+        right: 25px;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+    }
+        /* Hide the slides by default */
+    .mySlides {
+        display: none;
+    }
+    .demo {
+        height: 50px;
+        float: left;
+    }
+    .mySlides img{
+        height: 24.5rem;
+        width: 100%;
+    }
+        /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        /* margin-top: -300px; */
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+        /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+        /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+        /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+        /* Caption text */
+    .caption-container {
+        text-align: center;
+        background-color: black;
+        padding: 0.5rem;
+        color: white;
+    }
+
+    img.demo {
+        opacity: 0.6;
+        height: 100px;
+        width: 100%;
+         
+    }
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+    img.hover-shadow {
+        transition: 0.3s;
+    }
+
+    .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .column{
+        width: 25%;
+        float: left;
+    }
+}
+@media only screen and (max-width : 768px) {
+    #T-shirt-content{
+        height: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #T-shirt-content .header-content{
+        padding-top: 30px;
+    }
+    #contentImageText p{
+        margin-top: 5px;
+    }
+    #buying{
+        padding-bottom: 10px;
+    }
+    #containerTshirt #imageTshirt,#descriptionTshirt{
+        width: 25rem;
+    }
+}
+@media only screen and (max-width : 480px) {
+    #containerTshirt #imageTshirt,#descriptionTshirt{
+        width: 100%;
+         
+        margin-top: 45px;
+        float: left;
+    }
+    #containerTshirt #advertisement{
+        margin-top: 25px;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+    }
+}

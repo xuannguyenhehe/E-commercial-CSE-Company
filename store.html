@@ -1,261 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>CSE Corporation | CSE Is Home - Best Friends Forever</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link type="text/css" rel="stylesheet" href="navbar.css">
-        <link type="text/css" rel="stylesheet" href="store.css">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
-        <div id="website-box">
-            <div id="navbar">
-                <img src="image/logo-BK.png" alt="logoBK">
-                <img src="image/logo-CSE.png" alt="logoCSE">
-                <a id="mobile" href="javascript:void(0);" class="icon" onclick="myMobile()">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div id="navbar-right">
-                    <a href="home.html" class="navbar-element">HOME</a>
-                    <div class="dropdown navbar-element">
-                        <button class="dropbtn" onclick="WhatYouNeed()">WHAT YOU NEED <i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content" id="WhatYouNeed">
-                            <a>CSE's PRODUCT</a>
-                            <a href="T-shirt.html">&nbsp;&nbsp;&nbsp;The Associated Organ of Vietnamese Students’ Association T-shirt</a>
-                            <a href="">&nbsp;&nbsp;&nbsp;Ho Chi Minh Communist Youth Union Shirt</a>
-                            <a href="">&nbsp;&nbsp;&nbsp;CSE Neck Strap</a>
-                            <a href="">&nbsp;&nbsp;&nbsp;CSE Job Fair Teddy Bear</a>
+<html>
+<head>
+    <title>Store | CSE Corporation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="store.css">
+    <link rel="stylesheet" href="common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">
+            <img src="image/logo-BK.png" alt="logoBK">
+            <img src="image/logo-CSE.png" alt="logoCSE">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            WHAT YOU NEED
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="T-shirt.html">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
+                            <a class="dropdown-item" href="#">Ho Chi Minh Communist Youth Union Shirt</a>
+                            <a class="dropdown-item" href="#">CSE Neck Strap</a>
+                            <a class="dropdown-item" href="#">CSE Job Fair Teddy Bear</a>
                         </div>
                     </div>
-                    <a href="store.html" class="navbar-element">STORE</a>
-                    <div class="dropdown navbar-element">
-                        <button class="dropbtn" onclick="FamilyTree()">FAMILY TREE <i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content" id="FamilyTree">
-                            <a>CSE Corporation</a>
-                            <a href="about.html">&nbsp;&nbsp;&nbsp;About</a>
-                            <a href="">&nbsp;&nbsp;&nbsp;Leadership</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="store.html">STORE</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            FAMILY TREE
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="about.html">About</a>
+                        <a class="dropdown-item" href="#">Leadership</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="navbar-element">CONTACT</a>
-                    <div class="dropdown navbar-element">
-                        <button class="dropbtn" onclick="Account()"><i class="fa fa-user-circle"></i> ACCOUNT</button>
-                        <div class="dropdown-content" id="Account">
-                            <form method="post" name="formLogin">
-                                <div class="input-group">
-                                    <i class="fa fa-at"></i>
-                                    <input type="text" placeholder="Email" value="" name="email">
-                                </div>
-                                <div class="input-group">
-                                    <i class="fa fa-lock"></i>
-                                    <input type="password" placeholder="Password" value="" name="pwd">
-                                </div>
-                                <button id="loginButton" type="submit" value="login">Login</button>
-                                <div id="linkLogin">
-                                    <a href="">FORGOT?</a>
-                                    <a href="">SIGN UP</a>
-                                </div>
-                                <p>-- Or logining by --</p>
-                                <a href="" id="facebookButton">FACEBOOK</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ACCOUNT</a>
+                </li>
+            </ul>
         </div>
-        <div id="background">
-            <div id="slogan">
-                <h1>
-                    CSE STORE
-                </h1>
-                <h2>
-                    A place where you can buy everything from CSE STORE.
-                </h2>
-                <div id="clickContact">
-                    <a href="contact.html" target="_blank">GET IN TOUCH</a>
-                </div>
+    </nav>
+    <div class="jumbotron">
+        <class class="display-4" style="font-weight: 600;">CSE Coporation</class>
+        <p class="lead" style="font-weight: bold; padding-top: 25px;">A place where you can buy everything from CSE STORE.</p>
+        <hr class="my-4" style="background-color: white">
+        <p>CSE is Home<br>
+            Best Friends Forever</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="contact.html" role="button">GET IN TOUCH</a>
+        </p>
+    </div>
+    
+    <div id="store-content">
+      <div id="boxLeft">
+          <a class="closebtn" onclick="closeBoxLeft()">&times;</a>
+          <div class="category">
+              <div class="titleCategory">
+                  <h4>CATEGORY</h4>
+              </div>
+              <div class="listGroup">
+                  <div class="listGroupItem">
+                      <a href="#">Clothes<span>(2)</span></a>
+                  </div>
+                  <div class="listGroupItemChild">
+                      <a href="T-shirt.html">T-Shirts<span>(1)</span></a>
+                  </div>
+                  <div class="listGroupItemChild">
+                      <a href="#">Shirts<span>(1)</span></a>
+                  </div>
+                  <div class="listGroupItem">
+                      <a href="#">NeckStrap<span>(1)</span></a>
+                  </div>
+                  <div class="listGroupItem">
+                      <a href="#">Toys<span>(1)</span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="category">
+              <div class="titleCategory">
+                  <h4>PRICE</h4>
+              </div>
+              <div id="chooseRange">
+                  <p>Choose range</p>
+                  <div id="inputRange">
+                      <input type="text" id="inputFrom">
+                      <span>-</span>
+                      <input type="text" id="inputTo">
+                  </div>
+                  <button onclick="">OK</button>
+              </div>
+          </div>
+      </div>
+      <div id="boxRight">
+          <div id="optionBox">
+              <div id="optionChoose">
+                  <a class="closebtn" onclick="closeOptionBox()">&times;</a>
+                  <span>Priority:</span>
+                  <a>NEW PRODUCTS</a>
+                  <a>FLASH SALE</a>
+                  <a>SALE OFF</a>
+                  <a>LOW PRICE</a>
+                  <a>HIGH PRICE</a>
+              </div>
+              <div id="searchBox">
+                  <input type="text" name="searchBox" placeholder="Find in store" value="">
+                  <button onclick=""><i class="fa fa-search"></i></button>
+              </div>
+          </div>
+          <div id="handleMobile">
+              <div id="sorting">
+                  <button onclick="openOptionBox()">Sorting <i class="fa fa-caret-down"></i></button>
+              </div>
+              <div id="filter">
+                  <button onclick="openBoxLeft()"><i class="fa fa-filter"></i> Filter</button>
+              </div>
+          </div>
+          <div id="productBox">
+              <div id="smallBox">
+                  <div class="productSmallBox">
+                      <a href="T-shirt.html" class="linkProduct">
+                          <img src="image/aohoi.jpg" alt="aoHoi">
+                          <div class="smallImg">
+                              <img src="image/aohoi.jpg" alt="aoHoi">
+                              <img src="image/aodoan.jpg" alt="aoDoan">
+                          </div>
+                          <p class="titleProduct">The Associated Organ of Vietnamese Students’ Association T-shirt</p>
+                          <p class="priceProduct">90.000đ</p>
+                      </a>
+                  </div>
+                  <div class="productSmallBox" >
+                      <a href="#" class="linkProduct">
+                          <img src="image/aodoan.jpg" alt="aoDoan">
+                          <div class="smallImg">
+                              <img src="image/aodoan.jpg" alt="aoDoan">
+                              <img src="image/aohoi.jpg" alt="aoHoi">
+                          </div>
+                          <p class="titleProduct">Ho Chi Minh Communist Youth Union Shirt</p>
+                          <p class="priceProduct">110.000đ</p>
+                      </a>
+                  </div>
+                  <div class="productSmallBox">
+                      <a href="#" class="linkProduct">
+                          <img src="image/daydeo.jpg" alt="daydeo">
+                          <div class="smallImg">
+                          </div>
+                          <p class="titleProduct">CSE Neck Strap</p>
+                          <p class="priceProduct">30.000đ</p>
+                      </a>
+                  </div>
+                  <div class="productSmallBox">
+                      <a href="#" class="linkProduct">
+                          <img src="image/bg_gaubong.jpg" alt="gaubong">
+                          <div class="smallImg">
+                          </div>
+                          <p class="titleProduct">CSE JF Teddy Bear</p>
+                          <p class="priceProduct">120.000đ</p>
+                      </a>
+                  </div>
+                  <div class="productSmallBox">
+                      <a href="T-shirt.html" class="linkProduct">
+                          <img src="image/aohoi.jpg" alt="aoHoi">
+                          <div class="smallImg">
+                              <img src="image/aohoi.jpg" alt="">
+                              <img src="image/aodoan.jpg" alt="">
+                          </div>
+                          <p class="titleProduct">T-shirt</p>
+                          <p class="priceProduct">90.000đ</p>
+                      </a>
+                  </div>
+                  <div class="productSmallBox" >
+                      <a href="#" class="linkProduct">
+                          <img src="image/aodoan.jpg" alt="aoDoan">
+                          <div class="smallImg">
+                              <img src="image/aodoan.jpg" alt="aoDoan">
+                              <img src="image/aohoi.jpg" alt="aoHoi">
+                          </div>
+                          <p class="titleProduct">Shirts</p>
+                          <p class="priceProduct">110.000đ</p>
+                      </a>
+                  </div>
+              </div>
+              <nav aria-label="Page navigation example" style="margin-top: 1rem;">
+                <ul class="pagination justify-content-end">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+          </div>
+      </div>
+    </div>
+      <!-- Site footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">CSE Coporation provide the best product experience you've ever owned.<br> Contact us if you have any problem with our product. </p>
             </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>CSE's Product</h6>
+              <ul class="footer-links">
+                <li><a href="T-shirt.html">Association T-shirt</a></li>
+                <li><a href="#">HCM Communist Shirt</a></li>
+                <li><a href="#">CSE Neck Strap</a></li>
+                <li><a href="#">CSE Job Fair Bear</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="T-shirt.html">Product</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
         </div>
-        <div id="store-content">
-            <div id="boxLeft">
-                <a class="closebtn" onclick="closeBoxLeft()">&times;</a>
-                <div class="category">
-                    <div class="titleCategory">
-                        <h4>CATEGORY</h4>
-                    </div>
-                    <div class="listGroup">
-                        <div class="listGroupItem">
-                            <a href="">Clothes<span>(2)</span></a>
-                        </div>
-                        <div class="listGroupItemChild">
-                            <a href="">T-Shirts<span>(1)</span></a>
-                        </div>
-                        <div class="listGroupItemChild">
-                            <a href="">Shirts<span>(1)</span></a>
-                        </div>
-                        <div class="listGroupItem">
-                            <a href="">NeckStrap<span>(1)</span></a>
-                        </div>
-                        <div class="listGroupItem">
-                            <a href="">Toys<span>(1)</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="category">
-                    <div class="titleCategory">
-                        <h4>PRICE</h4>
-                    </div>
-                    <div id="chooseRange">
-                        <p>Choose range</p>
-                        <div id="inputRange">
-                            <input type="text" id="inputFrom">
-                            <span>-</span>
-                            <input type="text" id="inputTo">
-                        </div>
-                        <button onclick="">OK</button>
-                    </div>
-                </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+           <a href="home.html">CSECoporation</a>.
+              </p>
             </div>
-            <div id="boxRight">
-                <div id="optionBox">
-                    <div id="optionChoose">
-                        <a class="closebtn" onclick="closeOptionBox()">&times;</a>
-                        <span>Priority:</span>
-                        <a>NEW PRODUCTS</a>
-                        <a>FLASH SALE</a>
-                        <a>SALE OFF</a>
-                        <a>LOW PRICE</a>
-                        <a>HIGH PRICE</a>
-                    </div>
-                    <div id="searchBox">
-                        <input type="text" name="searchBox" placeholder="Find in store" value="">
-                        <button onclick=""><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-                <div id="handleMobile">
-                    <div id="sorting">
-                        <button onclick="openOptionBox()">Sorting <i class="fa fa-caret-down"></i></button>
-                    </div>
-                    <div id="filter">
-                        <button onclick="openBoxLeft()"><i class="fa fa-filter"></i> Filter</button>
-                    </div>
-                </div>
-                <div id="productBox">
-                    <div id="smallBox">
-                        <div class="productSmallBox">
-                            <a href="T-shirt.html" class="linkProduct">
-                                <img src="image/aohoi.jpg" alt="aoHoi">
-                                <div class="smallImg">
-                                    <img src="image/aohoi.jpg" alt="aoHoi">
-                                    <img src="image/aodoan.jpg" alt="aoDoan">
-                                </div>
-                                <p class="titleProduct">The Associated Organ of Vietnamese Students’ Association T-shirt</p>
-                                <p class="priceProduct">90.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox" >
-                            <a href="" class="linkProduct">
-                                <img src="image/aodoan.jpg" alt="aoDoan">
-                                <div class="smallImg">
-                                    <img src="image/aodoan.jpg" alt="aoDoan">
-                                    <img src="image/aohoi.jpg" alt="aoHoi">
-                                </div>
-                                <p class="titleProduct">Ho Chi Minh Communist Youth Union Shirt</p>
-                                <p class="priceProduct">110.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox">
-                            <a href="" class="linkProduct">
-                                <img src="image/daydeo.jpg" alt="daydeo">
-                                <div class="smallImg">
-                                </div>
-                                <p class="titleProduct">CSE Neck Strap</p>
-                                <p class="priceProduct">30.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox">
-                            <a href="" class="linkProduct">
-                                <img src="image/bg_gaubong.jpg" alt="gaubong">
-                                <div class="smallImg">
-                                </div>
-                                <p class="titleProduct">CSE JF Teddy Bear</p>
-                                <p class="priceProduct">120.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox">
-                            <a href="T-shirt.html" class="linkProduct">
-                                <img src="image/aohoi.jpg" alt="aoHoi">
-                                <div class="smallImg">
-                                    <img src="image/aohoi.jpg" alt="">
-                                    <img src="image/aodoan.jpg" alt="">
-                                </div>
-                                <p class="titleProduct">T-shirt</p>
-                                <p class="priceProduct">90.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox" >
-                            <a href="" class="linkProduct">
-                                <img src="image/aodoan.jpg" alt="aoDoan">
-                                <div class="smallImg">
-                                    <img src="image/aodoan.jpg" alt="aoDoan">
-                                    <img src="image/aohoi.jpg" alt="aoHoi">
-                                </div>
-                                <p class="titleProduct">Shirts</p>
-                                <p class="priceProduct">110.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox">
-                            <a href="" class="linkProduct">
-                                <img src="image/bg_daydeo.jpg" alt="daydeo">
-                                <div class="smallImg">
-                                </div>
-                                <p class="titleProduct">CSE Neck Strap</p>
-                                <p class="priceProduct">30.000đ</p>
-                            </a>
-                        </div>
-                        <div class="productSmallBox">
-                            <a href="" class="linkProduct">
-                                <img src="image/bg_gaubong.jpg" alt="gaubong">
-                                <div class="smallImg">
-                                </div>
-                                <p class="titleProduct">CSE JF Teddy Bear</p>
-                                <p class="priceProduct">120.000đ</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="paging">
-                        <a href="" class="normalPage">1</a>
-                        <a href="" class="normalPage">2</a>
-                        <a href="" class="nextPage"><i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="https://www.facebook.com/BKCSE.Multimedia" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="https://www.youtube.com/channel/UCRdt580Yp-P3Abj7JauVnoQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a class="dribbble" href="http://doanhoi.cse.hcmut.edu.vn/" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+              </ul>
             </div>
+          </div>
         </div>
-        <footer>
-            <h3>PRODUCTS</h3>
-            <div id="footer-product">
-                <div>
-                    The Associated Organ of Vietnamese Students’ Association T-shirt<br><br>
-                    Ho Chi Minh Communist Youth Union Shirt
-                </div>
-                <div>
-                    CSE Neck Strap
-                </div>
-                <div>
-                    CSE Job Fair Teddy Bear
-                </div>
-            </div>
-            <div id="footer-contact">
-                <img src="image/logo-BK.png" alt="logo-BK">
-                <img src="image/logo-CSE.png" alt="logo-CSE">
-                <span>&copy; 2020 CSE Corporation. All Rights Reserved</span>
-                <a href="https://www.facebook.com/BKCSE.Multimedia" target="_blank"><img src="image/facebook.png" alt="facebook"></a>
-                <a href="https://www.youtube.com/channel/UCRdt580Yp-P3Abj7JauVnoQ" target="_blank"><img src="image/youtube.png" alt="youtube"></a>
-                <a href="http://doanhoi.cse.hcmut.edu.vn/" target="_blank"><span>doanhoi</span></a>
-            </div>
-        </footer>
-        <script src="goToTop.js"></script>
-        <script src="mobile.js"></script>
-    </body>
+  </footer>
+  <script src="goToTop.js"></script>
+  <!-- <script src="mobile.js"></script> -->
+</body>
 </html>

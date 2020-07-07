@@ -1,0 +1,72 @@
+ 
+body {
+    background-color: wheat;
+}
+
+.jumbotron{
+    background-image: url("image/cse.jpg");
+    color: wheat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.col-sm img{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.col-sm img:hover{
+    opacity: 0.6;
+}
+
+.col-sm .content-box{
+    position: relative;
+    box-sizing: border-box;
+    font-size: 1em;
+    bottom: 0;
+    border: 1px solid grey;
+    background-color: wheat;
+    color: darkblue;
+    width: 100%; 
+    padding: 20px; 
+    border-top: none;
+}
+
+#animation{
+    animation-name: logo;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    height: 14rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+#animation img{
+    width: 7rem;
+    margin: 3rem 1rem;
+    /* box-sizing: border-box; */
+    float: left;
+}
+@keyframes logo{
+    0%   {left:0rem; top:0rem;}
+    100% {left:50rem; top:0rem;}
+}
+#introduceBox1{
+    background-color: yellowgreen;
+    padding: 2rem;
+}
+#introduceBox2{
+    background-color: dodgerblue;
+    padding: 2rem;
+}
+#introduceBox3{
+    background-color: turquoise;
+    padding: 2rem;
+}
+
+#factor {
+    margin-bottom: 5rem;
+}
