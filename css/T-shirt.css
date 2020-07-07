@@ -2,7 +2,7 @@ body {
     background-color: wheat;
 }
 .jumbotron{
-    background-image: url("image/bg_aohoi.jpg");
+    background-image: url("../image/bg_aohoi.jpg");
     color: wheat;
     background-repeat: no-repeat;
     background-size: cover;

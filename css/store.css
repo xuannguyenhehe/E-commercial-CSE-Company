@@ -4,7 +4,7 @@ body {
 }
 
 .jumbotron{
-    background-image: url("image/store.jpg");
+    background-image: url("../image/store.jpg");
     color: wheat;
     background-repeat: no-repeat;
     background-size: cover;

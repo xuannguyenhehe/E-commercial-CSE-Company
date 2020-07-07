@@ -3,7 +3,7 @@ body {
 }
 
 .jumbotron{
-    background-image: url("image/contact.jpg");
+    background-image: url("../image/contact.jpg");
     color: wheat;
     background-repeat: no-repeat;
     background-size: cover;
