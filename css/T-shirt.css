@@ -8,7 +8,7 @@ body {
     background-size: cover;
 }
 
-@media only screen and (max-width : 1440px) {
+@media only screen and (max-width : 1920px) {
     #T-shirt-content{
         padding-left: 5rem;
     }
