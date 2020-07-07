@@ -10,7 +10,7 @@ body {
     background-size: cover;
 }
 
-@media only screen and (max-width : 1440px) {
+@media only screen and (max-width : 1920px) {
     #store-content::after{
         clear: both;
         content:"";
