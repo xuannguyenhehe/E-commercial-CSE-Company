@@ -44,10 +44,13 @@
   margin-top: 10rem;
 }
 
-.rs3-wrap-input100,.rs4-wrap-input100,.rs5-wrap-input100,.rs6-wrap-input100 {
+.rs3-wrap-input100,.rs4-wrap-input100,.rs5-wrap-input100,.rs6-wrap-input100, .rs7-wrap-input100 {
   display: none;
 }
 
+#sex select{
+  height: 55px;
+}
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;

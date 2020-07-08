@@ -58,7 +58,19 @@
                     <a class="nav-link" href="contact.html">CONTACT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ACCOUNT</a>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ACCOUNT
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="login.html" target="_blank">Login/Signup</a>
+                    <a class="dropdown-item" href="product.html" target="_blank">Administrator</a>
+                    <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item" id="mycart">
+                  <a class="nav-link" href="cart.html">MY CART</a>
                 </li>
             </ul>
         </div>

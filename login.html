@@ -55,12 +55,21 @@
 						<span class="focus-input100"></span>
 					</div>
 
-					<div id="tel" class="wrap-input100 rs5-wrap-input100 validate-input m-b-20" data-validate="Type phone">
+					<div id="sex" class="wrap-input100 rs5-wrap-input100 validate-input m-b-20" data-validate="Choose sex">
+						<select name="sex" class="input100">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						  </select>
+						<!-- <input class="input100" type="text" name="text" placeholder="Fullname"> -->
+						<span class="focus-input100"></span>
+					</div>
+
+					<div id="tel" class="wrap-input100 rs6-wrap-input100 validate-input m-b-20" data-validate="Type phone">
 						<input class="input100" type="tel" name="tel" placeholder="Telephone">
 						<span class="focus-input100"></span>
 					</div>
 					
-					<div id="email" class="wrap-input100 rs6-wrap-input100 validate-input m-b-20" data-validate="Type email">
+					<div id="email" class="wrap-input100 rs7-wrap-input100 validate-input m-b-20" data-validate="Type email">
 						<input class="input100" type="email" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 					</div>
