@@ -29,10 +29,14 @@
     color: blue;
 }
 .navbar-brand img{
-    width: 7%;
+    width: 3rem;
 }
 .navbar-brand {
     max-width: 80%;
+}
+#mycart{
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
 }
 
 .navbar-nav .nav-link {
