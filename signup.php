@@ -1,7 +1,48 @@
+<?php
+
+    require_once("auth.php");
+    require_once("util.php");
+
+    $auth = new Auth();
+    $util = new AuthUtils();
+
+if (isset($_POST['signup'])) {
+
+    
+    $name = $_POST['username'];
+    $password = md5($_POST['pass']);
+    $fullName = $_POST['fullname'];
+    $sex = $_POST['sex'];
+    $email = $_POST['email'];
+    $tel = $_POST['tel'];
+
+
+    
+    $user = $auth->getUserByUsername($name);
+    //$_SESSION['user_id'] = $user[0]['Username'];
+   // echo $user[0]['Username'];
+    if (empty($user)) {
+        echo $auth->addNewUser($name,$password,$fullName,$sex,$tel,$email);
+        
+
+        $response = array(
+            "type" => "success",
+            "message" => "You have registered successfully."
+        );
+
+        $util->redirect('login.php');
+    } else {
+        $response = array(
+            "type" => "error",
+            "message" => "Username already in use."
+        );
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login | CSE Corporation</title>
+	<title>Sign up | CSE Corporation</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -29,11 +70,19 @@
 </head>
 <body>
 	<div class="limiter">
+        <div class="demo-content">
+			<?php
+			if (! empty($response)) { ?>
+			<div id="response" class="<?php echo $response["type"]; ?>"><?php echo $response["message"]; ?></div>
+			<?php
+			}
+			?>
+		</div>
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
+				<form id = "signup_form"  class="login100-form validate-form" method="POST" onsubmit="return validateSignUp()">
 					<span id="state" class="login100-form-title p-b-34">
-						Account Login
+						Account Sign Up
 					</span>
 					
 					<div id="username" class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
@@ -51,10 +100,19 @@
 					</div>
 
 					<div id="fullname" class="wrap-input100 rs4-wrap-input100 validate-input m-b-20" data-validate="Type fullname">
-						<input class="input100" type="text" name="text" placeholder="Fullname">
+						<input class="input100" type="text" name="fullname" placeholder="Fullname">
 						<span class="focus-input100"></span>
 					</div>
-
+					
+					<div id="sex" class="wrap-input100 rs5-wrap-input100 validate-input m-b-20" data-validate="Choose sex">
+						<select name="sex" class="input100">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						  </select>
+						<!-- <input class="input100" type="text" name="text" placeholder="Fullname"> -->
+						<span class="focus-input100"></span>
+					</div>
+					
 					<div id="tel" class="wrap-input100 rs5-wrap-input100 validate-input m-b-20" data-validate="Type phone">
 						<input class="input100" type="tel" name="tel" placeholder="Telephone">
 						<span class="focus-input100"></span>
@@ -64,25 +122,17 @@
 						<input class="input100" type="email" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 					</div>
-					
+					<!-- check box to allow browser save cookies for the next visiting time -->
+					<div>
+
 					<div class="container-login100-form-btn">
-						<button id="btnLogIn" class="login100-form-btn">
-							Log In
+						<button id="btnSignUp" class="login100-form-btn" name="signup">
+							Sign Up
 						</button>
 					</div>
 
-					<!-- <div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
-							
-						</span>
-
-						<a href="#" class="txt2">
-							
-						</a>
-					</div> -->
-
 					<div class="w-full text-center">
-						<button id="change" onclick="changeLogin()" class="txt3">Sign Up</button>
+						<a id="change" href='login.php'  class="txt3">Sign In</a>
 					</div>
 					<div id="test"></div>
 				</form>
@@ -119,6 +169,7 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
-	<script src="js/changeSignup.js"></script>
+	<script src="js/validateSignUp.js"></script>
 </body>
 </html>
+

@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+require_once("auth.php");
+require_once("util.php");
+
+$auth = new Auth();
+$db_handle = new DBController();
+$util = new AuthUtils();
+
+$isLoginUser = false;
+$permission = "MEMBER";
+if (!empty($_SESSION["user_id"])){
+    $isLoginUser = true;
+    $user = $auth->getUserByUsername($_SESSION["user_id"]);
+    if ($_COOKIE["permission"] != $user[0]["Permit"]){
+        $util -> redirect('logout.php');
+        $isLoginUser = false;
+    }
+    $permission = $_COOKIE["permission"] ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +37,7 @@
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
             <img src="image/logo-BK.png" alt="logoBK">
             <img src="image/logo-CSE.png" alt="logoCSE">
         </a>
@@ -25,7 +47,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="home.html">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -63,9 +85,27 @@
                             ACCOUNT
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="login.html" target="_blank">Login/Signup</a>
-                        <a class="dropdown-item" href="product.html" target="_blank">Administrator</a>
-                        <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                            <?php
+                                if($permission != "MEMBER"){
+                                    ?>
+                                   <a class="dropdown-item" href="product.php" target="_self">Administrator</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if($isLoginUser){
+                                    ?>
+                                    <a class="dropdown-item" href="logout.php" target="_self">Logout</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if(! $isLoginUser){
+                                    ?>
+                                   <a class="dropdown-item" href="login.php" target="_self">Sign In/Sign Up</a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </li>
@@ -182,7 +222,7 @@
           <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
               <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-           <a href="home.html">CSECoporation</a>.
+           <a href="home.php">CSECoporation</a>.
               </p>
             </div>
   
