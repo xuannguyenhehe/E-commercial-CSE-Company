@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,7 +15,7 @@
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
             <img src="image/logo-BK.png" alt="logoBK">
             <img src="image/logo-CSE.png" alt="logoCSE">
         </a>
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.html">HOME </a>
+                    <a class="nav-link" href="home.php">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -33,7 +33,7 @@
                             WHAT YOU NEED
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="T-shirt.html">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
+                            <a class="dropdown-item" href="T-shirt.php">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
                             <a class="dropdown-item" href="#">Ho Chi Minh Communist Youth Union Shirt</a>
                             <a class="dropdown-item" href="#">CSE Neck Strap</a>
                             <a class="dropdown-item" href="#">CSE Job Fair Teddy Bear</a>
@@ -41,37 +41,36 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="store.html">STORE</a>
+                <a class="nav-link" href="store.php">STORE</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             FAMILY TREE
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="about.html">About</a>
-                          <a class="dropdown-item" href="#">Leadership</a>
+                        <a class="dropdown-item" href="about.php">About</a>
+                        <a class="dropdown-item" href="#">Leadership</a>
                         </div>
                     </div>
-                    <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CONTACT</a>
+                    <a class="nav-link" href="contact.php">CONTACT</a>
                 </li>
-                <li class="nav-item">
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ACCOUNT
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="login.html" target="_blank">Login/Signup</a>
-                    <a class="dropdown-item" href="product.html" target="_blank">Administrator</a>
-                    <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ACCOUNT
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
+                        <a class="dropdown-item" href="product.php" target="_blank">Administrator</a>
+                        <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                        </div>
                     </div>
-                  </div>
                 </li>
                 <li class="nav-item" id="mycart">
-                  <a class="nav-link" href="cart.html">MY CART</a>
+                    <a class="nav-link" href="cart.php">MY CART</a>
                 </li>
             </ul>
         </div>
@@ -83,7 +82,7 @@
         <p>CSE is Home<br>
             Best Friends Forever</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="contact.html" role="button">GET IN TOUCH</a>
+            <a class="btn btn-primary btn-lg" href="contact.php" role="button">GET IN TOUCH</a>
         </p>
     </div>
     <div id="about-content">
@@ -194,7 +193,7 @@
       <p>Provide your product experience for us to perfect them more. 
         Contact us if you have any problem with our product.</p>
       <p class="lead" id="footer">
-          <a class="btn btn-warning" href="contact.html" role="button">CONTACT US</a>
+          <a class="btn btn-warning" href="contact.php" role="button">CONTACT US</a>
       </p>
     </div>
       <!-- Site footer -->
@@ -209,7 +208,7 @@
             <div class="col-xs-6 col-md-3">
               <h6>CSE's Product</h6>
               <ul class="footer-links">
-                <li><a href="T-shirt.html">Association T-shirt</a></li>
+                <li><a href="T-shirt.php">Association T-shirt</a></li>
                 <li><a href="#">HCM Communist Shirt</a></li>
                 <li><a href="#">CSE Neck Strap</a></li>
                 <li><a href="#">CSE Job Fair Bear</a></li>
@@ -219,10 +218,10 @@
             <div class="col-xs-6 col-md-3">
               <h6>Quick Links</h6>
               <ul class="footer-links">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="store.html">Store</a></li>
-                <li><a href="T-shirt.html">Product</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="store.php">Store</a></li>
+                <li><a href="T-shirt.php">Product</a></li>
               </ul>
             </div>
           </div>
@@ -232,7 +231,7 @@
           <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
               <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-           <a href="home.html">CSECoporation</a>.
+           <a href="home.php">CSECoporation</a>.
               </p>
             </div>
   

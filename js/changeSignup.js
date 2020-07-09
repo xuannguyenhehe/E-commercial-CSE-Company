@@ -8,6 +8,7 @@ function changeLogin(){
         document.getElementById("change").textContent = "Log In"
         document.getElementById("state").textContent = "ACCOUNT SIGN UP"
         document.getElementById("btnLogIn").textContent = "SIGN UP"
+        document.getElementById("sex").style.display = "block"
     }
     else {
         document.getElementById("repwd").style.display = "none"
@@ -17,5 +18,6 @@ function changeLogin(){
         document.getElementById("change").textContent = "Sign Up"
         document.getElementById("state").textContent = "ACCOUNT LOGIN"
         document.getElementById("btnLogIn").textContent = "LOG IN"
+        document.getElementById("sex").style.display = "none"
     }
 }

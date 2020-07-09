@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product | CSE Corporation</title>
+    <title>Admin | CSE Corporation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
             <img src="image/logo-BK.png" alt="logoBK">
             <img src="image/logo-CSE.png" alt="logoCSE">
         </a>
@@ -25,16 +25,16 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.html">BACK HOME </span></a>
+                    <a class="nav-link" href="home.php">BACK HOME </span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="product.php">PRODUCT </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="order.php">ORDER </a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="product.html">PRODUCT <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="order.html">ORDER </span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="admin.html">USER CONTROL </span></a>
+                  <a class="nav-link" href="admin.php">USER CONTROL <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -42,8 +42,8 @@
                             ACCOUNT
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="login.html" target="_blank">Login/Signup</a>
-                        <a class="dropdown-item" href="product.html" target="_blank">Administrator</a>
+                        <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
+                        <a class="dropdown-item" href="#" target="_blank">Administrator</a>
                         <a class="dropdown-item" href="#" target="_blank">Logout</a>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
         </div>
     </nav>
     <div id="product-content">
-      <h1>Product</h1>
-      <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Product</button>
+      <h1>User Control</h1>
+      <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Account</button>
       <br>
       <input type="text" id="nameSearch" onkeyup="searchName()" placeholder="Search for anything you want..">
 
@@ -61,7 +61,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+              <h5 class="modal-title" id="exampleModalLabel">New Users</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -69,36 +69,38 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="name" class="col-form-label">Name:</label>
-                  <input type="text" class="form-control" id="name">
+                  <label for="username" class="col-form-label">Username:</label>
+                  <input type="text" class="form-control" id="username">
                 </div>
                 <div class="form-group">
-                  <label for="material" class="col-form-label">Material:</label>
-                  <input type="text" class="form-control" id="material">
+                  <label for="pwd" class="col-form-label">Password:</label>
+                  <input type="password" class="form-control" id="pwd">
                 </div>
                 <div class="form-group">
-                  <label for="color" class="col-form-label">Color:</label>
-                  <input type="color" class="form-control" id="color">
+                  <label for="fullname" class="col-form-label">Fullname:</label>
+                  <input type="text" class="form-control" id="fullname">
                 </div>
                 <div class="form-group">
-                  <label for="otherdesign" class="col-form-label">Other design:</label>
-                  <input type="text" class="form-control" id="otherdesign">
+                  <label for="sex" class="col-form-label">Sex:</label>
+                  <select id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="otherfeature" class="col-form-label">Other feature:</label>
-                  <input type="text" class="form-control" id="otherfeature">
+                  <label for="tel" class="col-form-label">Telephone:</label>
+                  <input type="tel" class="form-control" id="tel">
                 </div>
                 <div class="form-group">
-                  <label for="note" class="col-form-label">Note:</label>
-                  <textarea class="form-control" id="note"></textarea>
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" class="form-control" id="email">
                 </div>
                 <div class="form-group">
-                  <label for="price" class="col-form-label">Price:</label>
-                  <input type="number" class="form-control" id="price">
-                </div>
-                <div class="form-group">
-                  <label for="name" class="col-form-label">Image:</label>
-                  <input type="file" id="myfile" class="form-control">
+                  <label for="role" class="col-form-label">Role:</label>
+                  <select id="role">
+                    <option value="staff">Staff</option>
+                    <option value="member">Member</option>
+                  </select>
                 </div>
               </form>
             </div>
@@ -113,57 +115,54 @@
         <thead>
           <tr>
             <th><input type="checkbox"></th>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Material</th>
-            <th scope="col">Color</th>
-            <th scope="col">Other design</th>
-            <th scope="col">Other feature</th>
-            <th scope="col">Note</th>
-            <th scope="col">Price</th>
-            <th scope="col">Image</th>
+            <th scope="col">Username</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><input type="checkbox"></td>
-            <th scope="row">1</th>
-            <td>T-Shirt</td>
-            <td>Materials of KATE SILK, smooth and soft, sweatin well.</td>
-            <td>Usuallly white or blue if you request.</td>
-            <td>Have strong collar, be short-sleeved.</td>
-            <td>Not faded, not shaggy.</td>
-            <td></td>
-            <td>90.000đ</td>
-            <td>t-shirt.jpg</td>
-            <td><button class="btn btn-danger">Delete</button></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <th scope="row">2</th>
-            <td>CSE Neck Strap</td>
-            <td>Materials of KATE SILK, smooth and soft, sweatin bad.</td>
-            <td>Usuallly white or blue if you request.</td>
-            <td>Have strong collar, be short-sleeved.</td>
-            <td>Not faded, not shaggy.</td>
-            <td></td>
-            <td>90.000đ</td>
-            <td>t-shirt.jpg</td>
-            <td><button class="btn btn-danger">Delete</button></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <th scope="row">3</th>
-            <td>CSE Job Fair Bear</td>
-            <td>Materials of KATE SILK, smooth and soft, sweatin well.</td>
-            <td>Usuallly white or blue if you request.</td>
-            <td>Have strong collar, be short-sleeved.</td>
-            <td>Not faded, not shaggy.</td>
-            <td></td>
-            <td>90.000đ</td>
-            <td>t-shirt.jpg</td>
-            <td><button class="btn btn-danger">Delete</button></td>
+        <?php 
+            $servername = "localhost";
+            $username = "xuannguyenhehe";
+            $password = "nguyen2808";
+            $dbhandle = mysqli_connect($servername, $username, $password)
+            or die("Unable to connect to MySQL<br>");
+            echo "";
+            $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+            or die("Could not select cse_corporation_1");
+
+            $sql = "SELECT Username, Fullname, Sex, Tel, Email, Permit FROM account";
+            $result = mysqli_query($dbhandle, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) {
+                $Username = $row['Username'];
+                $Fullname = $row["Fullname"];
+                $Sex = $row["Sex"];
+                $Tel = $row["Tel"];
+                $Email = $row["Email"];
+                $Permit = $row["Permit"];
+                echo "
+                  <form action='changeUser.php' method='POST'>
+                    <tr>
+                      <td><input type='checkbox' required></td>
+                      <td>$Username</td>
+                      <td>$Fullname</td>
+                      <td>$Sex</td>
+                      <td>$Tel</td>
+                      <td>$Email</td>
+                      <td>$Permit</td>
+                      <td><button name='change' class='btn btn-warning' type='submit' value='$Username'>Change</button>
+                      <button name='delete' class='btn btn-danger' type='submit' value='$Username'>Delete</button></td>
+                    </tr>
+                    </form>
+                    ";  
+              }
+            }
+          ?>
           </tr>
         </tbody>
       </table>  
@@ -181,7 +180,7 @@
             <div class="col-xs-6 col-md-3">
               <h6>CSE's Product</h6>
               <ul class="footer-links">
-                <li><a href="T-shirt.html">Association T-shirt</a></li>
+                <li><a href="T-shirt.php">Association T-shirt</a></li>
                 <li><a href="#">HCM Communist Shirt</a></li>
                 <li><a href="#">CSE Neck Strap</a></li>
                 <li><a href="#">CSE Job Fair Bear</a></li>
@@ -191,10 +190,10 @@
             <div class="col-xs-6 col-md-3">
               <h6>Quick Links</h6>
               <ul class="footer-links">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="store.html">Store</a></li>
-                <li><a href="T-shirt.html">Product</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="store.php">Store</a></li>
+                <li><a href="T-shirt.php">Product</a></li>
               </ul>
             </div>
           </div>
@@ -204,7 +203,7 @@
           <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
               <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-           <a href="home.html">CSECoporation</a>.
+           <a href="home.php">CSECoporation</a>.
               </p>
             </div>
   
