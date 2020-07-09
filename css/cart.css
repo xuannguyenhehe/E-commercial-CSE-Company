@@ -45,10 +45,20 @@ body {
         border: 1px solid dodgerblue;
     }
 
-    #information, #money{
+    #money{
         background-color: white;
         border: 1px solid silver;
         padding: 1rem;
+    }
+    #information .pid{
+        padding: 1rem;
+        background-color: white;
+        border: 1px solid silver;
+    }
+
+    #information {
+        background-color: white;
+        border: 1px solid silver;
     }
 
     #noteProduct{

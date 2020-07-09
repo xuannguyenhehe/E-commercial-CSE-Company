@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+require_once("auth.php");
+require_once("util.php");
+
+$auth = new Auth();
+$db_handle = new DBController();
+$util = new AuthUtils();
+
+$isLoginUser = false;
+$permission = "MEMBER";
+if (!empty($_SESSION["user_id"])){
+    $isLoginUser = true;
+    $user = $auth->getUserByUsername($_SESSION["user_id"]);
+    if ($_COOKIE["permission"] != $user[0]["Permit"]){
+        $util -> redirect('logout.php');
+        $isLoginUser = false;
+    }
+    $permission = $_COOKIE["permission"] ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +46,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="home.php">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -34,14 +56,14 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="T-shirt.php">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
-                            <a class="dropdown-item" href="#">Ho Chi Minh Communist Youth Union Shirt</a>
+                            <a class="dropdown-item" href="shirt.php">Ho Chi Minh Communist Youth Union Shirt</a>
                             <a class="dropdown-item" href="#">CSE Neck Strap</a>
                             <a class="dropdown-item" href="#">CSE Job Fair Teddy Bear</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="store.php">STORE</a>
+                <a class="nav-link" href="store.php">STORE</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -58,19 +80,37 @@
                     <a class="nav-link" href="contact.php">CONTACT</a>
                 </li>
                 <li class="nav-item">
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ACCOUNT
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
-                    <a class="dropdown-item" href="product.php" target="_blank">Administrator</a>
-                    <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ACCOUNT
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <?php
+                                if($permission != "MEMBER"){
+                                    ?>
+                                   <a class="dropdown-item" href="product.php" target="_self">Administrator</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if($isLoginUser){
+                                    ?>
+                                    <a class="dropdown-item" href="logout.php" target="_self">Logout</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if(! $isLoginUser){
+                                    ?>
+                                   <a class="dropdown-item" href="login.php" target="_self">Sign In/Sign Up</a>
+                                    <?php
+                                }
+                            ?>
+                        </div>
                     </div>
-                  </div>
                 </li>
                 <li class="nav-item" id="mycart">
-                  <a class="nav-link" href="cart.php">MY CART</a>
+                    <a class="nav-link" href="cart.php">MY CART</a>
                 </li>
             </ul>
         </div>
@@ -122,7 +162,7 @@
                       <span>-</span>
                       <input type="text" id="inputTo">
                   </div>
-                  <button onclick="">OK</button>
+                  <button onclick="filterPID()">OK</button>
               </div>
           </div>
       </div>
@@ -134,11 +174,11 @@
                   <a>NEW PRODUCTS</a>
                   <a>FLASH SALE</a>
                   <a>SALE OFF</a>
-                  <a>LOW PRICE</a>
-                  <a>HIGH PRICE</a>
+                  <a onclick="sortPID(1)">LOW PRICE</a>
+                  <a onclick="sortPID(0)">HIGH PRICE</a>
               </div>
               <div id="searchBox">
-                  <input type="text" name="searchBox" placeholder="Find in store" value="">
+                  <input id="searchbox" type="text" name="searchBox" placeholder="Find in store" onkeyup="searchPID()" >
                   <button onclick=""><i class="fa fa-search"></i></button>
               </div>
           </div>
@@ -152,68 +192,47 @@
           </div>
           <div id="productBox">
               <div id="smallBox">
-                  <div class="productSmallBox">
-                      <a href="T-shirt.php" class="linkProduct">
-                          <img src="image/aohoi.jpg" alt="aoHoi">
-                          <div class="smallImg">
-                              <img src="image/aohoi.jpg" alt="aoHoi">
-                              <img src="image/aodoan.jpg" alt="aoDoan">
-                          </div>
-                          <p class="titleProduct">The Associated Organ of Vietnamese Students’ Association T-shirt</p>
-                          <p class="priceProduct">90.000đ</p>
-                      </a>
-                  </div>
-                  <div class="productSmallBox" >
-                      <a href="#" class="linkProduct">
-                          <img src="image/aodoan.jpg" alt="aoDoan">
-                          <div class="smallImg">
-                              <img src="image/aodoan.jpg" alt="aoDoan">
-                              <img src="image/aohoi.jpg" alt="aoHoi">
-                          </div>
-                          <p class="titleProduct">Ho Chi Minh Communist Youth Union Shirt</p>
-                          <p class="priceProduct">110.000đ</p>
-                      </a>
-                  </div>
-                  <div class="productSmallBox">
-                      <a href="#" class="linkProduct">
-                          <img src="image/daydeo.jpg" alt="daydeo">
-                          <div class="smallImg">
-                          </div>
-                          <p class="titleProduct">CSE Neck Strap</p>
-                          <p class="priceProduct">30.000đ</p>
-                      </a>
-                  </div>
-                  <div class="productSmallBox">
-                      <a href="#" class="linkProduct">
-                          <img src="image/bg_gaubong.jpg" alt="gaubong">
-                          <div class="smallImg">
-                          </div>
-                          <p class="titleProduct">CSE JF Teddy Bear</p>
-                          <p class="priceProduct">120.000đ</p>
-                      </a>
-                  </div>
-                  <div class="productSmallBox">
-                      <a href="T-shirt.php" class="linkProduct">
-                          <img src="image/aohoi.jpg" alt="aoHoi">
-                          <div class="smallImg">
-                              <img src="image/aohoi.jpg" alt="">
-                              <img src="image/aodoan.jpg" alt="">
-                          </div>
-                          <p class="titleProduct">T-shirt</p>
-                          <p class="priceProduct">90.000đ</p>
-                      </a>
-                  </div>
-                  <div class="productSmallBox" >
-                      <a href="#" class="linkProduct">
-                          <img src="image/aodoan.jpg" alt="aoDoan">
-                          <div class="smallImg">
-                              <img src="image/aodoan.jpg" alt="aoDoan">
-                              <img src="image/aohoi.jpg" alt="aoHoi">
-                          </div>
-                          <p class="titleProduct">Shirts</p>
-                          <p class="priceProduct">110.000đ</p>
-                      </a>
-                  </div>
+              <?php 
+                    $servername = "localhost";
+                    $username = "xuannguyenhehe";
+                    $password = "nguyen2808";
+                    $dbhandle = mysqli_connect($servername, $username, $password)
+                    or die("Unable to connect to MySQL<br>");
+                    echo "";
+                    $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+                    or die("Could not select cse_corporation_1");
+
+                    $sql = "SELECT PID, Name, Material, Color, OtherDesign, OtherFeature, Note, Price, Image, Status FROM ord";
+                    $result = mysqli_query($dbhandle, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $PID = $row['PID'];
+                        $Name = $row["Name"];
+                        $Material = $row["Material"];
+                        $Color = $row["Color"];
+                        $OtherDesign = $row["OtherDesign"];
+                        $OtherFeature = $row["OtherFeature"];
+                        $Note = $row["Note"];
+                        $Price = $row["Price"];
+                        $Image = $row["Image"];
+                        echo "
+                        <div class='productSmallBox'>
+                            <a href='T-shirt.php' class='linkProduct'>
+                                <img src='image/aohoi.jpg' alt='aoHoi'>
+                                <div class='smallImg'>
+                                    <img src='image/aohoi.jpg' alt='aoHoi'>
+                                    <img src='image/aodoan.jpg' alt='aoDoan'>
+                                </div>
+                                <p class='titleProduct'>$Name</p>
+                                <p class='priceProduct'>$Price đ</p>
+                            </a>
+                        </div>
+                        
+                        ";
+                    }
+                }
+                ?>
+
               </div>
               <nav aria-label="Page navigation example" style="margin-top: 1rem;">
                 <ul class="pagination justify-content-end">
@@ -281,6 +300,7 @@
         </div>
   </footer>
   <script src="./js/goToTop.js"></script>
+  <script src="./js/searchStore.js"></script>
   <!-- <script src="mobile.js"></script> -->
 </body>
 </html>

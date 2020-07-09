@@ -154,7 +154,7 @@ body {
     #buying input:hover{
         border: 1px solid dodgerblue;
     }
-    #buying #buyButton input{
+    #buying #buyButton button{
         cursor: pointer;
         height: 4rem;
         width: 15rem;
@@ -163,7 +163,7 @@ body {
         background-color: red;
         font-size: 1rem;
     }
-    #buying #buyButton input:hover{
+    #buying #buyButton button:hover{
         opacity: 0.6;
     }
     #originalImage::after{
@@ -358,6 +358,10 @@ body {
     .column{
         width: 25%;
         float: left;
+    }
+
+    .submit {
+        width: 5rem;
     }
 }
 @media only screen and (max-width : 768px) {

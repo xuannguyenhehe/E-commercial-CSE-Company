@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+require_once("auth.php");
+require_once("util.php");
+
+$auth = new Auth();
+$db_handle = new DBController();
+$util = new AuthUtils();
+
+$isLoginUser = false;
+$permission = "MEMBER";
+if (!empty($_SESSION["user_id"])){
+    $isLoginUser = true;
+    $user = $auth->getUserByUsername($_SESSION["user_id"]);
+    if ($_COOKIE["permission"] != $user[0]["Permit"]){
+        $util -> redirect('logout.php');
+        $isLoginUser = false;
+    }
+    $permission = $_COOKIE["permission"] ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,14 +85,32 @@
                             ACCOUNT
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
-                        <a class="dropdown-item" href="product.php" target="_blank">Administrator</a>
-                        <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                            <?php
+                                if($permission != "MEMBER"){
+                                    ?>
+                                   <a class="dropdown-item" href="product.php" target="_self">Administrator</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if($isLoginUser){
+                                    ?>
+                                    <a class="dropdown-item" href="logout.php" target="_self">Logout</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if(! $isLoginUser){
+                                    ?>
+                                   <a class="dropdown-item" href="login.php" target="_self">Sign In/Sign Up</a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item" id="mycart">
-                    <a class="nav-link" href="contact.php">MY CART</a>
+                    <a class="nav-link" href="cart.php">MY CART</a>
                 </li>
             </ul>
         </div>
@@ -128,33 +168,64 @@
             <h1>MY CART</h1>
             <div class="row">
                 <div class="col-sm-9" id="information">
-                    <div class="row">
-                        <div class="col-3">
-                            <img id="myImage" src="image/aohoi.jpg" alt="aoHoi">
-                        </div>
-                        <div class="col-9">
-                            <div class="row">
-                                <div class="col-7" id="title">
-                                    The Associated Organ of Vietnamese Students’ Association T-shirt
+                    <?php 
+                        $user = $_COOKIE["user_login"];
+                        $servername = "localhost";
+                        $username = "xuannguyenhehe";
+                        $password = "nguyen2808";
+                        $dbhandle = mysqli_connect($servername, $username, $password)
+                        or die("Unable to connect to MySQL<br>");
+                        echo "";
+                        $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+                        or die("Could not select cse_corporation_1");
+                        $sqlSelect = "SELECT CID FROM cart WHERE Username = '$user'";
+                        $resultSelect = mysqli_query($dbhandle, $sqlSelect);
+                        $rowSelect = mysqli_fetch_assoc($resultSelect);
+                        $CID = $rowSelect["CID"];
+                        $sql = "SELECT PID FROM owning_pid_cart";
+                        $result = mysqli_query($dbhandle, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            $PID = $row['PID'];
+                            $sqlName = "SELECT Name, Price FROM ord WHERE PID='$PID'";
+                            $resultName = mysqli_query($dbhandle, $sqlName);
+                            $rowName = mysqli_fetch_assoc($resultName);
+                            $Name = $rowName["Name"];
+                            $Price = $rowName["Price"];
+
+                            echo "
+                            <div class='row pid'>
+                                <div class='col-3'>
+                                    <img id='myImage' src='image/aohoi.jpg' alt='aoHoi'>
                                 </div>
-                                <div class="col-2" id="price">
-                                    90.000đ
-                                </div>
-                                <div class="col-sm-3">
-                                    <div id="quantity">
-                                        <label>Quantities:</label>
-                                        <input id="numQuantity" type="text" required>
+                                <div class='col-9'>
+                                    <div class='row'>
+                                        <div class='col-7' id='title'>
+                                            $Name
+                                        </div>
+                                        <div class='col-2' id='price'>
+                                            $Price đ
+                                        </div>
+                                        <div class='col-sm-3'>
+                                            <div id='quantity'>
+                                                <label>Quantities:</label>
+                                                <input id='numQuantity' type='text' required value='0'>
+                                            </div>
+                                        </div>
+                                        <div class='col-sm-12'>
+                                            <input type='text' id='noteProduct' placeholder='Please note important information of products like size, quantities,...'>
+                                        </div>
+                                        <div class='col-sm-12'>
+                                            <button href='#' onclick=''>Remove</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <input type="text" id="noteProduct" placeholder="Please note important information of products like size, quantities,...">
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="#">Xóa</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div>        
+                            ";
+                        }
+                    }
+                    ?>
+                    
                 </div>
                 <div class="col-sm-3" id="money">
                     <div class="row">

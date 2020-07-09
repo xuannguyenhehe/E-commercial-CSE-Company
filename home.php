@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+require_once("auth.php");
+require_once("util.php");
+
+$auth = new Auth();
+$db_handle = new DBController();
+$util = new AuthUtils();
+
+$isLoginUser = false;
+$permission = "MEMBER";
+if (!empty($_SESSION["user_id"])){
+    $isLoginUser = true;
+    $user = $auth->getUserByUsername($_SESSION["user_id"]);
+    if ($_COOKIE["permission"] != $user[0]["Permit"]){
+        $util -> redirect('logout.php');
+        $isLoginUser = false;
+    }
+    $permission = $_COOKIE["permission"] ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +56,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="T-shirt.php">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
-                            <a class="dropdown-item" href="#">Ho Chi Minh Communist Youth Union Shirt</a>
+                            <a class="dropdown-item" href="shirt.php">Ho Chi Minh Communist Youth Union Shirt</a>
                             <a class="dropdown-item" href="#">CSE Neck Strap</a>
                             <a class="dropdown-item" href="#">CSE Job Fair Teddy Bear</a>
                         </div>
@@ -63,9 +85,27 @@
                             ACCOUNT
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
-                        <a class="dropdown-item" href="product.php" target="_blank">Administrator</a>
-                        <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                            <?php
+                                if($permission != "MEMBER"){
+                                    ?>
+                                   <a class="dropdown-item" href="product.php" target="_self">Administrator</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if($isLoginUser){
+                                    ?>
+                                    <a class="dropdown-item" href="logout.php" target="_self">Logout</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if(! $isLoginUser){
+                                    ?>
+                                   <a class="dropdown-item" href="login.php" target="_self">Sign In/Sign Up</a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </li>

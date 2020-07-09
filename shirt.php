@@ -23,7 +23,7 @@ if (!empty($_SESSION["user_id"])){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>T-Shirt | CSE Corporation</title>
+    <title>Shirt | CSE Corporation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -153,7 +153,7 @@ if (!empty($_SESSION["user_id"])){
         </div>
 
         <h1 class="header-content">
-            Meaning of this T-shirt
+            Meaning of this Sshirt
         </h1>
         <span>&#95;&#95;&#95;</span>
         <h2 class="descriptionHeader">
@@ -243,16 +243,16 @@ if (!empty($_SESSION["user_id"])){
                         </div> 
                     </div> 
                     <div id="bigImage">
-                        <img id="myImage" src="image/aohoi.jpg" alt="aoHoi">
+                        <img id="myImage" src="image/aodoan.jpg" alt="aoDoan">
                     </div>
                 </div>
             </div>
             <div id="descriptionTshirt">
                 <form action="saveCart.php" method="POST">
                 <div id="descriptionTitle">
-                    <h2>The Associated Organ of Vietnamese Students’ Association T-shirt</h2>
+                    <h2>Ho Chi Minh Communist Youth Union Shirt</h2>
                 </div>
-                <div id="price">ID: 1 <br> 90.000đ</div>
+                <div id="price">ID: 2 <br> 110.000đ</div>
                 <div id="descriptionContent">
                     <h2>Clothing materials:</h2>
                     <h2>Materials of KATE SILK, smooth and soft, sweatin well.</h2>
@@ -265,14 +265,14 @@ if (!empty($_SESSION["user_id"])){
                 </div>
                 <div id="buying">
                     <div id="buyButton">
-                        <button name="choose" class="btn btn-primary submit" type="submit" value="1">CHOOSE</button>
+                        <button name="choose" class="btn btn-primary submit" type="submit" value="2">CHOOSE</button>
                     </div>
                 </div>
                 </form>
             </div>
         </div>
         <div id="sizeOfTshirts">
-            <h1 class="header-content">Size of T-shirts</h1>
+            <h1 class="header-content">Size of Shirts</h1>
             <span>&#95;&#95;&#95;</span>
             <table>
                 <tr>

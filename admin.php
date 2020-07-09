@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+require_once("auth.php");
+require_once("util.php");
+
+$auth = new Auth();
+$db_handle = new DBController();
+$util = new AuthUtils();
+
+$isLoginUser = false;
+$permission = "STAFF";
+if (!empty($_SESSION["user_id"])){
+    $isLoginUser = true;
+    $user = $auth->getUserByUsername($_SESSION["user_id"]);
+    if ($_COOKIE["permission"] != $user[0]["Permit"]){
+        $util -> redirect('logout.php');
+        $isLoginUser = false;
+    }
+    $permission = $_COOKIE["permission"] ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,18 +55,35 @@
                 <li class="nav-item">
                   <a class="nav-link" href="order.php">ORDER </a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="admin.php">USER CONTROL <span class="sr-only">(current)</span></a>
-                </li>
+                <?php
+                    if($permission == "ADMIN"){
+                        ?>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="admin.php">USER CONTROL <span class="sr-only">(current)</span></a>
+                        </li>
+                        <?php
+                    }
+                ?>
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ACCOUNT
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="login.php" target="_blank">Login/Signup</a>
-                        <a class="dropdown-item" href="#" target="_blank">Administrator</a>
-                        <a class="dropdown-item" href="#" target="_blank">Logout</a>
+                        <?php
+                                if($isLoginUser){
+                                    ?>
+                                    <a class="dropdown-item" href="logout.php" target="_self">Logout</a>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if(! $isLoginUser){
+                                    ?>
+                                   <a class="dropdown-item" href="login.php" target="_self">Sign In/Sign Up</a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </li>
@@ -54,6 +93,7 @@
     <div id="product-content">
       <h1>User Control</h1>
       <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Account</button>
+      <button id="btnAdd" type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Edit Account</button>
       <br>
       <input type="text" id="nameSearch" onkeyup="searchName()" placeholder="Search for anything you want..">
 
@@ -67,50 +107,108 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="addUser.php" method="POST">
                 <div class="form-group">
                   <label for="username" class="col-form-label">Username:</label>
-                  <input type="text" class="form-control" id="username">
+                  <input type="text" class="form-control" id="username" name='username'>
                 </div>
                 <div class="form-group">
                   <label for="pwd" class="col-form-label">Password:</label>
-                  <input type="password" class="form-control" id="pwd">
+                  <input type="password" class="form-control" id="pwd" name='pwd'>
                 </div>
                 <div class="form-group">
                   <label for="fullname" class="col-form-label">Fullname:</label>
-                  <input type="text" class="form-control" id="fullname">
+                  <input type="text" class="form-control" id="fullname" name='fullname'>
                 </div>
                 <div class="form-group">
                   <label for="sex" class="col-form-label">Sex:</label>
-                  <select id="sex">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                  <select id="sex" name ='sex'>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="tel" class="col-form-label">Telephone:</label>
-                  <input type="tel" class="form-control" id="tel">
+                  <input type="tel" class="form-control" id="tel" name="tel">
                 </div>
                 <div class="form-group">
                   <label for="email" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control" id="email">
+                  <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
-                  <label for="role" class="col-form-label">Role:</label>
-                  <select id="role">
-                    <option value="staff">Staff</option>
-                    <option value="member">Member</option>
+                  <label for="permit" class="col-form-label">Role:</label>
+                  <select id="permit" name="permit">
+                    <option value="STAFF">Staff</option>
+                    <option value="MEMBER">Member</option>
                   </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
+          
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Users</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action='editUser.php' method="POST">
+                <div class="form-group">
+                  <label for="username" class="col-form-label">Username:</label>
+                  <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                  <label for="pwd" class="col-form-label">Password:</label>
+                  <input type="password" class="form-control" id="pwd" name="pwd">
+                </div>
+                <div class="form-group">
+                  <label for="fullname" class="col-form-label">Fullname:</label>
+                  <input type="text" class="form-control" id="fullname" name="fullname">
+                </div>
+                <div class="form-group">
+                  <label for="sex" class="col-form-label">Sex:</label>
+                  <select id="sex" name="sex">
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="tel" class="col-form-label">Telephone:</label>
+                  <input type="tel" class="form-control" id="tel" name="tel">
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="permit" class="col-form-label">Role:</label>
+                  <select id="permit" name="permit">
+                    <option value="STAFF">Staff</option>
+                    <option value="MEMBER">Member</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
       <table class="table table-striped" id="myTable">
         <thead>
           <tr>
@@ -142,6 +240,8 @@
                 $Username = $row['Username'];
                 $Fullname = $row["Fullname"];
                 $Sex = $row["Sex"];
+                if ($Sex == 0) $Sex = "Male";
+                else $Sex = "Female";
                 $Tel = $row["Tel"];
                 $Email = $row["Email"];
                 $Permit = $row["Permit"];
