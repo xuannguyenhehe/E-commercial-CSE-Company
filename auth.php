@@ -16,7 +16,9 @@ class Auth {
         $db_handle = new DBController();
         $role = "MEMBER";
         $query = "INSERT INTO account (Username, Pwd, Fullname ,Sex, Tel, Email, Permit) VALUES (?, ?, ?,?,?,?,?)";
+        $sql = "INSERT INTO cart (Username) VALUES (?)";
         $result = $db_handle->insert($query, 'sssssss', array($username, $pwd, $fullname, $sex, $tel, $email, $role));
+        $rsql = $db_handle->insert($sql, 's', array($username));
         return $result;
     }
 

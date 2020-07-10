@@ -56,7 +56,7 @@ if (!empty($_SESSION["user_id"])){
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="T-shirt.php">The Associated Organ of Vietnamese Students’ Association T-shirt</a>
-                            <a class="dropdown-item" href="#">Ho Chi Minh Communist Youth Union Shirt</a>
+                            <a class="dropdown-item" href="shirt.php">Ho Chi Minh Communist Youth Union Shirt</a>
                             <a class="dropdown-item" href="#">CSE Neck Strap</a>
                             <a class="dropdown-item" href="#">CSE Job Fair Teddy Bear</a>
                         </div>
@@ -110,7 +110,27 @@ if (!empty($_SESSION["user_id"])){
                     </div>
                 </li>
                 <li class="nav-item" id="mycart">
-                    <a class="nav-link" href="cart.php">MY CART</a>
+                <?php 
+                        $servername = "localhost";
+                        $username = "xuannguyenhehe";
+                        $password = "nguyen2808";
+                        $dbhandle = mysqli_connect($servername, $username, $password)
+                        or die("Unable to connect to MySQL<br>");
+                        echo "";
+                        $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+                        or die("Could not select cse_corporation_1");
+                        $user = $_COOKIE["user_login"];
+
+                        $sqlCID = "SELECT CID FROM cart WHERE Username = '$user'";
+                        $resultCID = mysqli_query($dbhandle, $sqlCID);
+                        $rowCID = mysqli_fetch_assoc($resultCID);
+                        $CID = $rowCID["CID"]; 
+
+                        $sql = "SELECT PID FROM owning_pid_cart";
+                        $result = mysqli_query($dbhandle, $sql);
+                        $quantity = mysqli_num_rows($result);
+                        echo "<a class='nav-link' href='cart.php'>MY CART <span id='quantityCart'>$quantity</span></a>";
+                    ?>
                 </li>
             </ul>
         </div>
@@ -127,12 +147,12 @@ if (!empty($_SESSION["user_id"])){
     </div>
     
     <div id="cart-content">
-        <form class="" method="POST" action="">
+        <form class="" method="POST" action="processCart.php">
             <h1>ORDER CONFIRMATION</h1>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip01">Full name</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Full name" required>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Full name" required name="fullname">
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
@@ -141,7 +161,7 @@ if (!empty($_SESSION["user_id"])){
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip02">Telephone</label>
-                    <input type="tel" class="form-control" id="validationTooltip02" placeholder="Telephone" required>
+                    <input type="tel" class="form-control" id="validationTooltip02" placeholder="Telephone" required name="tel">
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
@@ -149,17 +169,8 @@ if (!empty($_SESSION["user_id"])){
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip03">Email</label>
-                    <input type="email" class="form-control" id="validationTooltip03" placeholder="Email" required>
-                    <div class="valid-tooltip">
-                        Looks good!
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip04">Address</label>
-                    <input type="text" class="form-control" id="validationTooltip04" placeholder="Address" required>
+                    <label for="validationTooltip03">Address</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Address" required name="address">
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
@@ -184,6 +195,7 @@ if (!empty($_SESSION["user_id"])){
                         $CID = $rowSelect["CID"];
                         $sql = "SELECT PID FROM owning_pid_cart";
                         $result = mysqli_query($dbhandle, $sql);
+                        $TotalName = '';
                         if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
                             $PID = $row['PID'];
@@ -192,31 +204,32 @@ if (!empty($_SESSION["user_id"])){
                             $rowName = mysqli_fetch_assoc($resultName);
                             $Name = $rowName["Name"];
                             $Price = $rowName["Price"];
+                            $TotalName = $TotalName.' '.$Name;
 
                             echo "
                             <div class='row pid'>
                                 <div class='col-3'>
-                                    <img id='myImage' src='image/aohoi.jpg' alt='aoHoi'>
+                                    <img class='myImage' src='image/aohoi.jpg' alt='aoHoi'>
                                 </div>
                                 <div class='col-9'>
                                     <div class='row'>
-                                        <div class='col-7' id='title'>
+                                        <div class='col-7' class='titlename'>
                                             $Name
                                         </div>
-                                        <div class='col-2' id='price'>
+                                        <div class='col-2' class='price'>
                                             $Price đ
                                         </div>
                                         <div class='col-sm-3'>
-                                            <div id='quantity'>
+                                            <div class='quantity'>
                                                 <label>Quantities:</label>
-                                                <input id='numQuantity' type='text' required value='0'>
+                                                <input class='numQuantity' type='text' name='quantity[]' required value='0'>
                                             </div>
                                         </div>
                                         <div class='col-sm-12'>
-                                            <input type='text' id='noteProduct' placeholder='Please note important information of products like size, quantities,...'>
+                                            <input type='text' class='noteProduct' placeholder='Please note important information of products like size, quantities,...'>
                                         </div>
                                         <div class='col-sm-12'>
-                                            <button href='#' onclick=''>Remove</button>
+                                            <a id='$PID' class='btn btn-primary remove' onclick='removePID($PID)'>Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -224,29 +237,32 @@ if (!empty($_SESSION["user_id"])){
                             ";
                         }
                     }
-                    ?>
                     
+                    
+                echo "    
                 </div>
-                <div class="col-sm-3" id="money">
-                    <div class="row">
-                        <div class="col-sm-12">
+                <div class='col-sm-3' id='money'>
+                    <div class='row'>
+                        <div class='col-sm-12'>
                             <p>
-                                <span>Temporary</span>
-                                <span>90.000đ</span>
+                                <span onclick='totalCart()' class='btn btn-info total'>Temporary: </span>
+                                <span class='resultCart' id='totalCart'>0</span>
                             </p>
                         </div>
-                        <div class="col-sm-12">
+                        <div class='col-sm-12'>
                             <p>
-                                <span>Total</span>
-                                <span>90.000đ</span>
+                                <span class='btn btn-info total'>Total: </span>
+                                <span class='resultCart'>0</span>
                             </p>
                         </div>
-                        <div class="col-sm-12">
-                            <!-- <button type="submit" class="btn btn-danger" style="width: 100%;">Order</button> -->
-                            <input type="submit" class="btn btn-danger" style="width: 100%" value="Order">
+                        <div class='col-sm-12'>
+                            
+                            <button name='order' type='submit' class='btn btn-danger' style='width: 100%' value='$TotalName'>Order</button>
                         </div>
                     </div>
-                </div>
+                </div>";
+                    
+                ?>
             </div>
         </form>
     </div>
@@ -302,5 +318,6 @@ if (!empty($_SESSION["user_id"])){
   </footer>
   <script src="./js/goToTop.js"></script>
   <script src="./js/increaseNum.js"></script>
+  <script src="./js/totalCart.js"></script>
 </body>
 </html>

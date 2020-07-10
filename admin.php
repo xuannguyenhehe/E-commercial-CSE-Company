@@ -94,6 +94,7 @@ if (!empty($_SESSION["user_id"])){
       <h1>User Control</h1>
       <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Account</button>
       <button id="btnAdd" type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Edit Account</button>
+      <div id='raiseError'></div>
       <br>
       <input type="text" id="nameSearch" onkeyup="searchName()" placeholder="Search for anything you want..">
 
@@ -107,22 +108,26 @@ if (!empty($_SESSION["user_id"])){
               </button>
             </div>
             <div class="modal-body">
-              <form action="addUser.php" method="POST">
+              <form action="addUser.php" method="POST"  onsubmit='return(checkAddUsers())'>
                 <div class="form-group">
                   <label for="username" class="col-form-label">Username:</label>
-                  <input type="text" class="form-control" id="username" name='username'>
+                  <input type="text" class="form-control" id="username" name='username' required>
                 </div>
                 <div class="form-group">
                   <label for="pwd" class="col-form-label">Password:</label>
-                  <input type="password" class="form-control" id="pwd" name='pwd'>
+                  <input type="password" class="form-control" id="pwd" name='pwd' required>
+                </div>
+                <div class="form-group">
+                  <label for="repwd" class="col-form-label">Re-Password:</label>
+                  <input type="password" class="form-control" id="repwd" name='repwd' required>
                 </div>
                 <div class="form-group">
                   <label for="fullname" class="col-form-label">Fullname:</label>
-                  <input type="text" class="form-control" id="fullname" name='fullname'>
+                  <input type="text" class="form-control" id="fullname" name='fullname' required>
                 </div>
                 <div class="form-group">
                   <label for="sex" class="col-form-label">Sex:</label>
-                  <select id="sex" name ='sex'>
+                  <select id="sex" name ='sex' required>
                     <option value="0">Male</option>
                     <option value="1">Female</option>
                   </select>

@@ -23,11 +23,11 @@ if (!empty($_SESSION["user_id"])){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Store | CSE Corporation</title>
+    <title>Home | CSE Corporation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/store.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -111,25 +111,33 @@ if (!empty($_SESSION["user_id"])){
                 </li>
                 <li class="nav-item" id="mycart">
                 <?php 
-                        $servername = "localhost";
-                        $username = "xuannguyenhehe";
-                        $password = "nguyen2808";
-                        $dbhandle = mysqli_connect($servername, $username, $password)
-                        or die("Unable to connect to MySQL<br>");
-                        echo "";
-                        $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
-                        or die("Could not select cse_corporation_1");
-                        $user = $_COOKIE["user_login"];
+                        if (isset($_COOKIE["user_login"])){
+                            $user = $_COOKIE["user_login"];
+                            $servername = "localhost";
+                            $username = "xuannguyenhehe";
+                            $password = "nguyen2808";
+                            $dbhandle = mysqli_connect($servername, $username, $password)
+                            or die("Unable to connect to MySQL<br>");
+                            echo "";
+                            $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+                            or die("Could not select cse_corporation_1");
 
-                        $sqlCID = "SELECT CID FROM cart WHERE Username = '$user'";
-                        $resultCID = mysqli_query($dbhandle, $sqlCID);
-                        $rowCID = mysqli_fetch_assoc($resultCID);
-                        $CID = $rowCID["CID"]; 
+                            $sqlCID = "SELECT CID FROM cart WHERE Username = '$user'";
+                            $resultCID = mysqli_query($dbhandle, $sqlCID);
+                            $rowCID = mysqli_fetch_assoc($resultCID);
+                            $CID = $rowCID["CID"]; 
 
-                        $sql = "SELECT PID FROM owning_pid_cart";
-                        $result = mysqli_query($dbhandle, $sql);
-                        $quantity = mysqli_num_rows($result);
-                        echo "<a class='nav-link' href='cart.php'>MY CART <span id='quantityCart'>$quantity</span></a>";
+                            $sql = "SELECT PID FROM owning_pid_cart";
+                            $result = mysqli_query($dbhandle, $sql);
+                            $quantity = mysqli_num_rows($result);
+                            
+                            echo "<a class='nav-link' href='cart.php'>MY CART <span id='quantityCart'>$quantity</span></a>";
+                            }
+                        
+                        else {
+                            echo "<a class='nav-link' href='cart.php'>MY CART <span id='quantityCart'>0</span></a>";
+                        }
+                        
                     ?>
                 </li>
             </ul>
@@ -137,7 +145,7 @@ if (!empty($_SESSION["user_id"])){
     </nav>
     <div class="jumbotron">
         <class class="display-4" style="font-weight: 600;">CSE Coporation</class>
-        <p class="lead" style="font-weight: bold; padding-top: 25px;">A place where you can buy everything from CSE STORE.</p>
+        <p class="lead" style="font-weight: bold; padding-top: 25px;">You are a Part of CSE - Shoulder to Shoulder - We are One</p>
         <hr class="my-4" style="background-color: white">
         <p>CSE is Home<br>
             Best Friends Forever</p>
@@ -146,132 +154,8 @@ if (!empty($_SESSION["user_id"])){
         </p>
     </div>
     
-    <div id="store-content">
-      <div id="boxLeft">
-          <a class="closebtn" onclick="closeBoxLeft()">&times;</a>
-          <div class="category">
-              <div class="titleCategory">
-                  <h4>CATEGORY</h4>
-              </div>
-              <div class="listGroup">
-                  <div class="listGroupItem">
-                      <a href="#">Clothes<span>(2)</span></a>
-                  </div>
-                  <div class="listGroupItemChild">
-                      <a href="T-shirt.php">T-Shirts<span>(1)</span></a>
-                  </div>
-                  <div class="listGroupItemChild">
-                      <a href="#">Shirts<span>(1)</span></a>
-                  </div>
-                  <div class="listGroupItem">
-                      <a href="#">NeckStrap<span>(1)</span></a>
-                  </div>
-                  <div class="listGroupItem">
-                      <a href="#">Toys<span>(1)</span></a>
-                  </div>
-              </div>
-          </div>
-          <div class="category">
-              <div class="titleCategory">
-                  <h4>PRICE</h4>
-              </div>
-              <div id="chooseRange">
-                  <p>Choose range</p>
-                  <div id="inputRange">
-                      <input type="text" id="inputFrom">
-                      <span>-</span>
-                      <input type="text" id="inputTo">
-                  </div>
-                  <button onclick="filterPID()">OK</button>
-              </div>
-          </div>
-      </div>
-      <div id="boxRight">
-          <div id="optionBox">
-              <div id="optionChoose">
-                  <a class="closebtn" onclick="closeOptionBox()">&times;</a>
-                  <span>Priority:</span>
-                  <a>NEW PRODUCTS</a>
-                  <a>FLASH SALE</a>
-                  <a>SALE OFF</a>
-                  <a onclick="sortPID(1)">LOW PRICE</a>
-                  <a onclick="sortPID(0)">HIGH PRICE</a>
-              </div>
-              <div id="searchBox">
-                  <input id="searchbox" type="text" name="searchBox" placeholder="Find in store" onkeyup="searchPID()" >
-                  <button onclick=""><i class="fa fa-search"></i></button>
-              </div>
-          </div>
-          <div id="handleMobile">
-              <div id="sorting">
-                  <button onclick="openOptionBox()">Sorting <i class="fa fa-caret-down"></i></button>
-              </div>
-              <div id="filter">
-                  <button onclick="openBoxLeft()"><i class="fa fa-filter"></i> Filter</button>
-              </div>
-          </div>
-          <div id="productBox">
-              <div id="smallBox">
-              <?php 
-                    $servername = "localhost";
-                    $username = "xuannguyenhehe";
-                    $password = "nguyen2808";
-                    $dbhandle = mysqli_connect($servername, $username, $password)
-                    or die("Unable to connect to MySQL<br>");
-                    echo "";
-                    $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
-                    or die("Could not select cse_corporation_1");
-
-                    $sql = "SELECT PID, Name, Material, Color, OtherDesign, OtherFeature, Note, Price, Image, Status FROM ord";
-                    $result = mysqli_query($dbhandle, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        $PID = $row['PID'];
-                        $Name = $row["Name"];
-                        $Material = $row["Material"];
-                        $Color = $row["Color"];
-                        $OtherDesign = $row["OtherDesign"];
-                        $OtherFeature = $row["OtherFeature"];
-                        $Note = $row["Note"];
-                        $Price = $row["Price"];
-                        $Image = $row["Image"];
-                        echo "
-                        <div class='productSmallBox'>
-                            <a href='T-shirt.php' class='linkProduct'>
-                                <img src='image/aohoi.jpg' alt='aoHoi'>
-                                <div class='smallImg'>
-                                    <img src='image/aohoi.jpg' alt='aoHoi'>
-                                    <img src='image/aodoan.jpg' alt='aoDoan'>
-                                </div>
-                                <p class='titleProduct'>$Name</p>
-                                <p class='priceProduct'>$Price đ</p>
-                            </a>
-                        </div>
-                        
-                        ";
-                    }
-                }
-                ?>
-
-              </div>
-              <nav aria-label="Page navigation example" style="margin-top: 1rem;">
-                <ul class="pagination justify-content-end">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
-          </div>
-      </div>
-    </div>
       <!-- Site footer -->
-      <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6">
@@ -320,7 +204,5 @@ if (!empty($_SESSION["user_id"])){
         </div>
   </footer>
   <script src="./js/goToTop.js"></script>
-  <script src="./js/searchStore.js"></script>
-  <!-- <script src="mobile.js"></script> -->
 </body>
 </html>

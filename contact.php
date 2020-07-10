@@ -110,7 +110,27 @@ if (!empty($_SESSION["user_id"])){
                     </div>
                 </li>
                 <li class="nav-item" id="mycart">
-                    <a class="nav-link" href="cart.php">MY CART</a>
+                <?php 
+                        $servername = "localhost";
+                        $username = "xuannguyenhehe";
+                        $password = "nguyen2808";
+                        $dbhandle = mysqli_connect($servername, $username, $password)
+                        or die("Unable to connect to MySQL<br>");
+                        echo "";
+                        $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+                        or die("Could not select cse_corporation_1");
+                        $user = $_COOKIE["user_login"];
+
+                        $sqlCID = "SELECT CID FROM cart WHERE Username = '$user'";
+                        $resultCID = mysqli_query($dbhandle, $sqlCID);
+                        $rowCID = mysqli_fetch_assoc($resultCID);
+                        $CID = $rowCID["CID"]; 
+
+                        $sql = "SELECT PID FROM owning_pid_cart";
+                        $result = mysqli_query($dbhandle, $sql);
+                        $quantity = mysqli_num_rows($result);
+                        echo "<a class='nav-link' href='cart.php'>MY CART <span id='quantityCart'>$quantity</span></a>";
+                    ?>
                 </li>
             </ul>
         </div>

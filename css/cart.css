@@ -26,14 +26,14 @@ body {
     #information img{
         width: 100%;
     }
-    #price{
+    .price{
         font-weight: bold;
         font-size: 1rem;
     }
-    #quantity label{
+    .quantity label{
         font-weight: bold;
     }
-    #quantity input{
+    .quantity input{
         margin: 0;
         font-size: 1rem;
         text-align: center;
@@ -41,7 +41,7 @@ body {
         border: 1px solid silver;
         width: 2rem;
     }
-    #quantity input:hover{
+    .quantity input:hover{
         border: 1px solid dodgerblue;
     }
 
@@ -61,10 +61,14 @@ body {
         border: 1px solid silver;
     }
 
-    #noteProduct{
+    .noteProduct{
         width: 100%;
         border: 1px solid lavender;
         margin: 1rem 0;
+    }
+
+    .total{
+        width: 6rem;
     }
 }
 

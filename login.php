@@ -21,15 +21,16 @@ if (isset($_POST['login'])) {
 	$username = $_POST["username"];
 	$password = md5($_POST['pass']);
 
-
+	$response = array();
 	$user = $auth->getUserByUsername($username);
 
-	if (empty($user)){
+	if (is_null($user)){
 		$response = array(
             "type" => "error",
             "message" => "Sign in failed: user not found"
         );
 	}
+	else {
 	
 	if ($password == $user[0]["Pwd"]) {
 		$isAuthenticated = true;
@@ -69,6 +70,7 @@ if (isset($_POST['login'])) {
             "type" => "error",
             "message" => "Sign in failed: incorrect password"
         );
+	}	
 	}
 }
 ?>
@@ -103,12 +105,16 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 	<div class="limiter">
+
 		<!--log comment for debug-->
 		<div class="demo-content">
 			<?php
-			if (! empty($response)) {
-				?>
-			<div id="response" class="<?php echo $response["type"]; ?>"><?php echo $response["message"]; ?></div>
+			if (! empty($response)) { ?>
+			<div id="response" class="error_message" ><?php echo $response["message"]; ?></div>
+			<script>
+				var mes = document.getElementById("response").innerHTML;
+				alert(mes);
+			</script>
 			<?php
 			}
 			?>

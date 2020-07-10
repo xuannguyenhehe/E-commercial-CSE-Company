@@ -225,3 +225,13 @@
 #myBtn:hover {
     background-color: goldenrod; 
 }
+
+#quantityCart{
+  background-color: dodgerblue;
+  display: inline-block;
+  border: 1px solid dodgerblue;
+  padding: 0 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
