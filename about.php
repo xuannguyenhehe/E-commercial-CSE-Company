@@ -80,9 +80,20 @@ if (!empty($_SESSION["user_id"])){
                     <a class="nav-link" href="contact.php">CONTACT</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="info.php">INFO</a>
+                </li>
+                <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            ACCOUNT
+                            <?php 
+                              if (isset($_COOKIE["user_login"])){
+                                $user = $_COOKIE['user_login'];
+                                echo $user;
+                              }
+                              else {
+                                echo "ACCOUNT";
+                              }
+                            ?>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <?php

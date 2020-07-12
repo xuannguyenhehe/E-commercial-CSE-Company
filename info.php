@@ -23,11 +23,11 @@ if (!empty($_SESSION["user_id"])){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | CSE Corporation</title>
+    <title>Info | CSE Corporation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/info.css">
     <link rel="stylesheet" href="./css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -80,9 +80,20 @@ if (!empty($_SESSION["user_id"])){
                     <a class="nav-link" href="contact.php">CONTACT</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="info.php">INFO</a>
+                </li>
+                <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            ACCOUNT
+                        <?php 
+                              if (isset($_COOKIE["user_login"])){
+                                $user = $_COOKIE['user_login'];
+                                echo $user;
+                              }
+                              else {
+                                echo "ACCOUNT";
+                              }
+                            ?>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <?php
@@ -153,7 +164,74 @@ if (!empty($_SESSION["user_id"])){
             <a class="btn btn-primary btn-lg" href="contact.php" role="button">GET IN TOUCH</a>
         </p>
     </div>
-    
+    <div id="info-content">
+
+        <?php 
+            $servername = "localhost";
+            $username = "xuannguyenhehe";
+            $password = "nguyen2808";
+            $dbhandle = mysqli_connect($servername, $username, $password)
+            or die("Unable to connect to MySQL<br>");
+            echo "";
+            $selected = mysqli_select_db($dbhandle, "cse_corporation_1")
+            or die("Could not select cse_corporation_1");
+            if (isset($_COOKIE["user_login"])){
+            $user = $_COOKIE["user_login"];
+
+            $sql = "SELECT Fullname, Sex, Tel, Email, Permit FROM account WHERE Username = '$user'";
+            $result = mysqli_query($dbhandle, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) {
+                $Fullname = $row["Fullname"];
+                $Sex = $row["Sex"];
+                if ($Sex == 0) $Sex = "Male";
+                else $Sex = "Female";
+                $Tel = $row["Tel"];
+                $Email = $row["Email"];
+                $Permit = $row["Permit"];
+                echo "
+                <table class='table table-striped'>
+                <h1 style='font-size: 1.5rem; padding-left: 1.5rem'>Thanks you for believing us. Having a beautiful day!</h1>
+                <tbody>
+                  <tr>
+                    <th scope='row'>Fullname</th>
+                    <td>$Fullname</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Username</th>
+                    <td>$user</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Sex</th>
+                    <td>$Sex</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Telephone</th>
+                    <td>$Tel</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Email</th>
+                    <td>$Email</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>Type Account</th>
+                    <td>$Permit</td>
+                  </tr>
+                  
+                </tbody>
+              </table>";  
+              }}
+              else {
+                  echo "<h1 style='font-size: 1.5rem; padding-left: 1.5rem'>Thanks you for believing us. Having a beautiful day!</h1>";
+              }
+            }
+            else {
+                echo "<h1 style='font-size: 1.5rem; padding-left: 1.5rem'>Please login/sign up to continue!</h1>";
+            }
+        
+        ?>
+        
+    </div>
       <!-- Site footer -->
     <footer class="site-footer">
         <div class="container">

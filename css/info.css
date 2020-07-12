@@ -1,0 +1,10 @@
+body {
+    background-color: wheat;
+}
+
+.jumbotron{
+    background-image: url("../image/info.jpg");
+    color: wheat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
